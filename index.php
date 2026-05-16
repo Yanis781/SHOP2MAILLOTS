@@ -9,16 +9,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> BlackBox_iut { Login }  </title>
+        <title> SHOP2MAILLOT { Login }  </title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Welcome to The BlackBox_iut</h1>    
+        <h1> Bienvenue !</h1>    
 
-        <div class="dashcard">
+        <div>
             <h2> connect to your account </h2>
             <hr>
-            <form method="post" action="verif_login.php">
+            <form method="post" action="verif_login.php">     
                 Username :
                 <input type="text" name="user" required><br>
                 Password :
@@ -52,6 +52,6 @@
             ?>
         </div>
 
-        <p class="footer">@Fares - 2026</p>
+        <p>@Fares|Yanis - 2026</p>
     </body>
 </html>
