@@ -19,10 +19,10 @@
                 <input type="text" name="new_user" required><br>
                 Password :
                 <input type="password" name="new_password" required><br>
-                <button type="submit">Register</button><br>
+                <button type="submit">Inscrivez vous!</button><br>
             </form><br>
 
-            <a href="../index.php">have already an account ?</a>
+            <a href="../index.php">Vous avez deja un compte?</a>
 
             <?php
 

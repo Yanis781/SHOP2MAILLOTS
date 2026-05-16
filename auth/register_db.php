@@ -11,7 +11,7 @@
 
         if (mysqli_fetch_array($result)) {
 
-            $message = "this user already exist !";
+            $message = "Cet utilisateur existe déja !";
 
             header("Location: register.php?message=$message");
 
@@ -19,7 +19,7 @@
 
             mysqli_query($con,"INSERT INTO user (user,mdp) VALUES ('$new_user','$new_password')");
 
-            $message = "Account created !";
+            $message = "Compte Créer !";
 
             header("Location: ../index.php?message=$message");
 

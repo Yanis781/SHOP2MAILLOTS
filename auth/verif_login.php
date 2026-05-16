@@ -16,8 +16,6 @@
             $_SESSION['user'] = $user;
             $_SESSION['password'] = $password;
 
-            header("location: ../shop/home.php");
-
         } else {
             $message = "Wrong Password or User";
 
@@ -25,8 +23,8 @@
         }
     } else {
 
-        echo "<h1> access denided.</h1>";
-        echo "<a href='../index.php'>return to connexion. </a>";
+        echo "<h1> Accès interdit.</h1>";
+        echo "<a href='../index.php'>Revenir a la page de connection. </a>";
     }
 
 ?>

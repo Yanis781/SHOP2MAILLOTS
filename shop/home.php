@@ -7,11 +7,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> BlackBox_iut { Home }  </title>
+        <title> SHOP2MAILLOTS { Page d'acceuil }  </title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>BlackBox Iut Dashboard</h1>    
+        <h1>SHOP2MAILLOTS Page d'acceuil</h1>    
 
         <?php 
                 if (isset($_GET['edit-success'])) {
@@ -19,8 +19,8 @@
                 }
         ?>
 
-        <a href="settings.php">Make some modification on youre profile ?</a><br>
-        <a href="logout.php">Logout ?</a>
+        <a href="settings.php"> Modifier votre profil !</a><br>
+        <a href="logout.php">Decconexion!</a>
 
         <div>
             <h2> Profile </h2>
@@ -29,7 +29,7 @@
         </div>
 
         <div>
-            <h2> Tel us what you think </h2>
+            <h2> Dites nous ce que vous pensez ! </h2>
             <hr>
             <form method="post" action="message.php">
                 <input type="text" size="100" placeholder="Typpe just here" required><br>
