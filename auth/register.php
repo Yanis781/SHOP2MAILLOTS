@@ -5,14 +5,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> BlackBox_iut { Register } </title>
+        <title> SHOP2MAILLOT { Register } </title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Welcome to The BlackBox_iut</h1>    
+        <h1>Bienvenue sur SHOP2MAILLOTS</h1>    
 
         <div>
-            <h2> Register </h2>
+            <h2> Inscription </h2>
             <hr>
             <form method="post" action="register_db.php">
                 Username :
@@ -22,7 +22,7 @@
                 <button type="submit">Register</button><br>
             </form><br>
 
-            <a href="index.php">have already an account ?</a>
+            <a href="../index.php">have already an account ?</a>
 
             <?php
 

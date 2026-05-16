@@ -2,7 +2,7 @@
 
     session_start();
 
-    require_once('connect_db.php');
+    require_once('../bdd/connect_db.php');
 
     if (isset($_POST['user'],$_POST['password'])) {
 
@@ -16,17 +16,17 @@
             $_SESSION['user'] = $user;
             $_SESSION['password'] = $password;
 
-            header("location: home.php");
+            header("location: ../shop/home.php");
 
         } else {
             $message = "Wrong Password or User";
 
-            header("location: index.php?error_login=$message");
+            header("location: ../index.php?error_login=$message");
         }
     } else {
 
         echo "<h1> access denided.</h1>";
-        echo "<a href='index.php'>return to connexion. </a>";
+        echo "<a href='../index.php'>return to connexion. </a>";
     }
 
 ?>

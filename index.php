@@ -18,7 +18,7 @@
         <div>
             <h2> connect to your account </h2>
             <hr>
-            <form method="post" action="verif_login.php">     
+            <form method="post" action="auth/verif_login.php">     
                 Username :
                 <input type="text" name="user" required><br>
                 Password :
@@ -26,7 +26,7 @@
                 <button type="submit">Login</button><br>
             </form><br>
 
-            <a href="register.php">No account ?</a>
+            <a href="auth/register.php">No account ?</a>
         </div>
 
         <hr>
