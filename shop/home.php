@@ -19,11 +19,11 @@
                 }
         ?>
 
-        <a href="settings.php"> Modifier votre profil !</a><br>
-        <a href="logout.php">Decconexion!</a>
+        <a href="../user/settings.php"> Modifier votre profil !</a><br>
+        <a href="../auth/logout.php">Deconexion!</a>
 
         <div>
-            <h2> Profile </h2>
+            <h2> Profil </h2>
             <hr>
             <?php echo "<p> Welcome back"." $user "."!</p>"; ?>
         </div>

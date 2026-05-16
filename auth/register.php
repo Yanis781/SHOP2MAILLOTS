@@ -15,9 +15,9 @@
             <h2> Inscription </h2>
             <hr>
             <form method="post" action="register_db.php">
-                Username :
+                Identifiant :
                 <input type="text" name="new_user" required><br>
-                Password :
+                Mot de passe :
                 <input type="password" name="new_password" required><br>
                 <button type="submit">Inscrivez vous!</button><br>
             </form><br>

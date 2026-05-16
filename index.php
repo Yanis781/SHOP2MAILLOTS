@@ -16,17 +16,17 @@
         <h1> Bienvenue !</h1>    
 
         <div>
-            <h2> connect to your account </h2>
+            <h2> Connectez vous ! </h2>
             <hr>
             <form method="post" action="auth/verif_login.php">     
-                Username :
+                Identifiant :
                 <input type="text" name="user" required><br>
-                Password :
+                Mot de passe :
                 <input type="password" name="password" required><br>
                 <button type="submit">Login</button><br>
             </form><br>
 
-            <a href="auth/register.php">No account ?</a>
+            <a href="auth/register.php">Pas de compte ?</a>
         </div>
 
         <hr>
