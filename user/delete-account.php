@@ -1,26 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> BlackBox_iut { Delete } </title>
+    <title> SHOP2MAILLOTS { Delete } </title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>⚠️ This action is irreversible.</h1><br>
+    <h1>⚠️ Cette action est irreversible.</h1><br>
     <div>
         <?php 
                 if (isset($_GET['delete-fail'])) {
                     echo "<p>".$_GET['delete-fail']."</p>";
                 }
         ?>
-        <h2>Delete the account?</h2>
+        <h2>Supprimer le compte ?</h2>
         <form method="post" action="confirm-delete.php">
-            Current password to confirm: 
+            Mot de passe actuelle pour confirmer : 
             <input type="password" name="password" require><br>
-            <button type="submit">Confirm</button>
+            <button type="submit">Confirmer</button>
         </form>
-        <a href="settings.php">Cancel and return to settings.</a>
+        <a href="settings.php">Annuler et revenir aux Paramettre.</a>
     </div>
 </body>
 </html>

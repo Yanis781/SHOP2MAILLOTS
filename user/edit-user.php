@@ -3,14 +3,14 @@
 
     $user = $_SESSION['user'];
     
-    require_once('connect_db.php');
+    require_once('../bdd/connect_db.php');
 
     if (isset($_POST['user-edit'],$_POST['password'])) {
         
         $user_edit = mysqli_real_escape_string($con, $_POST['user-edit']); 
         $password = mysqli_real_escape_string($con, $_POST['password']); 
 
-        $result = mysqli_query($con,"SELECT user FROM user WHERE user = '$user' AND password = '$password'");
+        $result = mysqli_query($con,"SELECT user FROM user WHERE user = '$user' AND mdp = '$password'");
 
         if (mysqli_fetch_array($result)) {
 
@@ -24,7 +24,7 @@
 
                 $edit_success = "User has been change";
 
-                header("location: home.php?edit-success=$edit_success");
+                header("location: ../shop/home.php?edit-success=$edit_success");
             } else {
                 $edit_fail = "This user already exist !";
 
@@ -36,7 +36,7 @@
             header("location: settings.php?edit-fail=$edit_fail");
         }
     } else {
-        header('location: index.php');
+        header('location: ../index.php');
     }
 
 ?>

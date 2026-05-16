@@ -7,13 +7,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> BlackBox_iut { settings }  </title>
+        <title> SHOP2MAILLOTS { Paramettre }  </title>
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>BlackBox Iut Edit</h1>    
+        <h1>SHOP2MAILLOTS Paramettre</h1>    
 
-        <a href="home.php">Return home ?</a><br>
+        <a href="../shop/home.php">Revenir a la page d'accueil ?</a><br>
 
         <div>
             <?php 
@@ -21,9 +21,9 @@
                     echo "<p>".$_GET['edit-fail']."</p>";
                 }
             ?>
-            <h2>Change User ?</h2>
+            <h2>Changer le nom d'utilisateur ?</h2>
             <hr>
-            <?php echo "Youre Username : " . $user . "."; ?>
+            <?php echo "Ton nom d'utilisateur actuelle est : " . $user . "."; ?>
 
             <form method="post" action="edit-user.php">
                 New user : <br>
@@ -35,19 +35,19 @@
         </div>
 
         <div>
-            <h2>Change Password ?</h2>
+            <h2>Changer le Mot de passe ?</h2>
             <hr>
             <form method="post" action="edit-password.php">
-                Recent Password : <br>
+                Mot de passe actuelle : <br>
                 <input type="password" name="password" required><br>
-                New Password : <br>
+                Nouveau mot de passe : <br>
                 <input type="password" name="password-edit" required><br>
-                <button type="submit"> Change password </button>
+                <button type="submit"> Changer le Mot de passe </button>
             </form>
         </div>
 
         <div>
-            <h2>Deleted account ?</h2>
+            <h2>Supprimer le compte ?</h2>
             <hr>
             <a href="delete-account.php">Delete account ?</a>
         </div>
