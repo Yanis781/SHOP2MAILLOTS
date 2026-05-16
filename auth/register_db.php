@@ -1,6 +1,6 @@
 <?php
 
-    require_once('connect_db.php');
+    require_once('../bdd/connect_db.php');
 
     if (isset($_POST['new_user'],$_POST['new_password'])){
 
@@ -12,23 +12,23 @@
         if (mysqli_fetch_array($result)) {
 
             $message = "this user already exist !";
-            
+
             header("Location: register.php?message=$message");
 
         } else {
 
             mysqli_query($con,"INSERT INTO user VALUES ('$new_user','$new_password')");
-        
+
             $message = "Account created !";
-            
-            header("Location: index.php?message=$message");
+
+            header("Location: ../index.php?message=$message");
 
         }
-        
+
         mysqli_close($con);
 
     } else {
         echo "<h1>access denided.</h1>";
-        echo "<a href='index.php'>return to connexion.</a>";
+        echo "<a href='../index.php'>return to connexion.</a>";
     }
 ?>
