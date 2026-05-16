@@ -16,7 +16,7 @@
             $_SESSION['user'] = $user;
             $_SESSION['password'] = $password;
 
-            header("location: ../shop/home.php?error_login=$message");
+            header("location: ../shop/home.php");
 
         } else {
             $message = "Wrong Password or User";

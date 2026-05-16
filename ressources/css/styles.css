@@ -1,0 +1,124 @@
+/* =========================================
+   STYLE GLOBAL
+========================================= */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f4; /* Fond gris clair pour le reste du site */
+}
+
+/* =========================================
+   EN-TÊTE (HEADER) - Style Maxi Kits
+========================================= */
+.entete-principale {
+    display: flex;
+    justify-content: space-between; /* Pousse le logo à gauche et le menu à droite */
+    align-items: center; /* Centre verticalement */
+    background-color: #000000; /* Fond noir */
+    color: #ffffff; /* Texte blanc */
+    padding: 15px 50px; /* Espace autour */
+}
+
+.boite-logo a {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold; /* Pour garder l'aspect titre qu'avait le h2 */
+    letter-spacing: 2px;
+    color: #ffffff; /* Force la couleur blanche */
+    text-decoration: none;
+    display: inline-block; /* Obligatoire pour que le transform (agrandissement) fonctionne bien */
+    transition: all 0.3s ease; /* Rend l'animation bien fluide */
+}
+
+.boite-logo a:hover {
+    transform: scale(1.05); /* Agrandit le texte de 5% sans décaler le reste du menu */
+    text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8); /* Crée une vraie lueur blanche diffuse tout autour */
+}
+
+/* =========================================
+   NAVIGATION ET LIENS
+========================================= */
+.navigation-principale {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espace entre les liens */
+}
+
+.navigation-principale a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase; /* Met tout en majuscules */
+    letter-spacing: 1px;
+    transition: color 0.3s ease; /* Animation fluide au survol */
+}
+
+/* Changement de couleur au passage de la souris */
+.navigation-principale a:hover, 
+.bouton-compte:hover {
+    color: #00fff7; /* Orange/Rouge style Maxi Kits, tu peux changer ! */
+    cursor: pointer;
+}
+
+/* =========================================
+   MENU DÉROULANT (COMPTE)
+========================================= */
+.menu-deroulant {
+    position: relative;
+    display: inline-block;
+    /* On crée un "pont" invisible pour que la souris ne perde pas le hover */
+    padding-bottom: 20px; 
+    margin-bottom: -20px; 
+}
+
+.bouton-compte {
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* La boite cachée par défaut */
+.contenu-deroulant {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%; /* Colle la boite pile en dessous du texte */
+    background-color: #ffffff; 
+    color: #000000; 
+    min-width: 180px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    border-radius: 4px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+/* Style du bandeau "Salut, ..." */
+.contenu-deroulant p {
+    margin: 0;
+    padding: 12px 16px;
+    font-size: 14px;
+    background-color: #f1f1f1; 
+    /* Le trait de séparation propre : */
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+/* Les liens du menu */
+.contenu-deroulant a {
+    display: block; /* CRUCIAL : force le lien à prendre toute la largeur ! */
+    color: #000000; 
+    padding: 12px 16px;
+    text-transform: none; 
+    font-weight: normal;
+}
+
+.contenu-deroulant a:hover {
+    background-color: #f9f9f9;
+    color: #00f2ff;
+}
+
+/* Afficher la boite au survol */
+.menu-deroulant:hover .contenu-deroulant {
+    display: block;
+}

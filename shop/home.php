@@ -1,6 +1,11 @@
 <?php
     session_start();
 
+    if (!isset($_SESSION['user'])) {
+        header('location: ../index.php');
+        exit();
+    }
+
     $user = $_SESSION['user'];
 ?>
 
@@ -8,10 +13,10 @@
 <html>
     <head>
         <title> SHOP2MAILLOTS { Page d'acceuil }  </title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="../ressources/css/styles.css">
     </head>
     <body>
-        <h1>SHOP2MAILLOTS Page d'acceuil</h1>    
+        <?php require_once '../includes/header.php'; ?>   
 
         <?php 
                 if (isset($_GET['edit-success'])) {
@@ -19,24 +24,13 @@
                 }
         ?>
 
-        <a href="../user/settings.php"> Modifier votre profil !</a><br>
-        <a href="../auth/logout.php">Deconexion!</a>
-
         <div>
             <h2> Profil </h2>
             <hr>
             <?php echo "<p> Welcome back"." $user "."!</p>"; ?>
         </div>
 
-        <div>
-            <h2> Dites nous ce que vous pensez ! </h2>
-            <hr>
-            <form method="post" action="message.php">
-                <input type="text" size="100" placeholder="Typpe just here" required><br>
-                <button type="submit">Send</button> 
-            </form>
-        </div>
 
-        <p>@Fares - 2026</p>
+        <p>@Fares|Yanis - 2026</p>
     </body>
 </html>
