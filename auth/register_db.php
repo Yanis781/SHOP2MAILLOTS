@@ -17,7 +17,7 @@
 
         } else {
 
-            mysqli_query($con,"INSERT INTO user VALUES ('$new_user','$new_password')");
+            mysqli_query($con,"INSERT INTO user (user,mdp) VALUES ('$new_user','$new_password')");
 
             $message = "Account created !";
 
