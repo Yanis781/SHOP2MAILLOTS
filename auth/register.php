@@ -1,4 +1,11 @@
 <?php
+
+    session_start();
+
+    if (isset($_SESSION['user'])) {
+        header('location: shop/home.php');
+    }
+
     if (isset($_GET['message']))
         $message = $_GET['message'];
 ?>
