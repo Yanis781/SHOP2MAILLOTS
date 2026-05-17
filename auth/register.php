@@ -9,6 +9,7 @@
     if (isset($_GET['message']))
         $message = $_GET['message'];
 ?>
+
 <!DOCTYPE html>
 <html>
     <head>

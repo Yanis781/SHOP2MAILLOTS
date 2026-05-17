@@ -28,7 +28,6 @@
         mysqli_close($con);
 
     } else {
-        echo "<h1>access denided.</h1>";
-        echo "<a href='../index.php'>return to connexion.</a>";
+        header("Location: ../index.php");
     }
 ?>

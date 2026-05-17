@@ -24,9 +24,7 @@
             header("location: ../index.php?error_login=$message");
         }
     } else {
-
-        echo "<h1> Accès interdit.</h1>";
-        echo "<a href='../index.php'>Revenir a la page de connection. </a>";
+        header("Location: ../index.php");
     }
 
 ?>
