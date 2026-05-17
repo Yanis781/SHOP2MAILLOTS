@@ -46,13 +46,11 @@ body {
     position: absolute;
     left: 50%; /* Pousse le logo à 50% de l'écran vers la droite */
     transform: translateX(-50%); /* Le recule de la moitié de sa propre taille pour qu'il soit PILE au centre */
-    border: 1px solid #ffffff;
-    border-radius: 25px;
 }
 
 .logo-central img {
     /* On limite la taille de l'image pour qu'elle ne déborde pas de tes 10vh */
-    max-height: 5vh; /* 8vh laisse un petit espace (1vh en haut, 1vh en bas) */
+    max-height: 4vh; /* 8vh laisse un petit espace (1vh en haut, 1vh en bas) */
     transition: transform 0.3s ease; /* Pour rajouter une petite animation sympa */
 }
 
