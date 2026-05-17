@@ -17,11 +17,12 @@ body {
     background-color: #000000; /* Fond noir */
     color: #ffffff; /* Texte blanc */
     padding: 15px 50px; /* Espace autour */
+    height: 5vh;
 }
 
 .boite-logo a {
     margin: 0;
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold; /* Pour garder l'aspect titre qu'avait le h2 */
     letter-spacing: 2px;
     color: #ffffff; /* Force la couleur blanche */
@@ -34,6 +35,33 @@ body {
     transform: scale(1.05); /* Agrandit le texte de 5% sans décaler le reste du menu */
     text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8); /* Crée une vraie lueur blanche diffuse tout autour */
 }
+
+
+/* =========================================
+   LOGO CENTRAL
+========================================= */
+.logo-central {
+    /* La position absolue le sort du flux normal, 
+       il ne poussera ni le menu de gauche ni celui de droite */
+    position: absolute;
+    left: 50%; /* Pousse le logo à 50% de l'écran vers la droite */
+    transform: translateX(-50%); /* Le recule de la moitié de sa propre taille pour qu'il soit PILE au centre */
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+}
+
+.logo-central img {
+    /* On limite la taille de l'image pour qu'elle ne déborde pas de tes 10vh */
+    max-height: 5vh; /* 8vh laisse un petit espace (1vh en haut, 1vh en bas) */
+    transition: transform 0.3s ease; /* Pour rajouter une petite animation sympa */
+}
+
+/* Optionnel : petit effet quand on passe la souris sur le logo central */
+.logo-central img:hover {
+    transform: scale(1.05);
+}
+
+
 
 /* =========================================
    NAVIGATION ET LIENS
@@ -48,7 +76,7 @@ body {
     color: #ffffff;
     text-decoration: none;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 20px;
     text-transform: uppercase; /* Met tout en majuscules */
     letter-spacing: 1px;
     transition: color 0.3s ease; /* Animation fluide au survol */
@@ -74,7 +102,7 @@ body {
 
 .bouton-compte {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 18px;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
@@ -98,7 +126,7 @@ body {
 .contenu-deroulant p {
     margin: 0;
     padding: 12px 16px;
-    font-size: 14px;
+    font-size: 20px;
     background-color: #f1f1f1; 
     /* Le trait de séparation propre : */
     border-bottom: 1px solid #e0e0e0; 

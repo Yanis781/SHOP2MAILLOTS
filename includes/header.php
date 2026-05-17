@@ -3,6 +3,10 @@
         <a href="../shop/home.php">SHOP2MAILLOTS</a>
     </div>
     
+    <div class="logo-central">
+        <img src="../ressources/images/logo_S2M.png" alt="Logo Shop2Maillots">
+    </div>
+
     <nav class="navigation-principale">
         <a href="../shop/catalog.php">CATALOGUE</a>
         <a href="../shop/cart.php">PANIER</a>
