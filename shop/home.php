@@ -14,6 +14,7 @@
     <head>
         <title> SHOP2MAILLOTS { Page d'acceuil }  </title>
         <link rel="stylesheet" href="../ressources/css/styles.css">
+        <link rel="icon" type="image/x-icon" href="../ressources/images/favicon.ico">
     </head>
     <body>
         <?php require_once '../includes/header.php'; ?>   
