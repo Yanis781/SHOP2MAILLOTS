@@ -8,7 +8,7 @@
     </div>
 
     <nav class="navigation-principale">
-        <a href="../shop/catalog.php">CATALOGUE</a>
+        <a href="../shop/catalogue.php">CATALOGUE</a>
         <a href="../shop/cart.php">PANIER</a>
         
         <div class="menu-deroulant">
