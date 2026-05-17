@@ -33,5 +33,7 @@
 
 
         <p>@Fares|Yanis - 2026</p>
+        
+        <?php require_once '../includes/footer.php'; ?>
     </body>
 </html>

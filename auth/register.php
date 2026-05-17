@@ -5,33 +5,39 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> SHOP2MAILLOT { Register } </title>
-        <link rel="stylesheet" href="styles.css">
+        <title> SHOP2MAILLOTS { Register } </title>
+        <link rel="stylesheet" href="../ressources/css/styles.css">
     </head>
-    <body>
-        <h1>Bienvenue sur SHOP2MAILLOTS</h1>    
+    <body class="page-login">
 
-        <div>
-            <h2> Inscription </h2>
-            <hr>
+        <header class="banniere-login">
+            <h2>SHOP2MAILLOTS</h2>
+        </header>
+
+        <div class="conteneur-login">
+            <h1>CRÉER UN COMPTE</h1> 
+
             <form method="post" action="register_db.php">
-                Identifiant :
-                <input type="text" name="new_user" required><br>
-                Mot de passe :
-                <input type="password" name="new_password" required><br>
-                <button type="submit">Inscrivez vous!</button><br>
-            </form><br>
+                <input type="text" name="new_user" class="input-login" placeholder="Identifiant *" required>
+                <input type="password" name="new_password" class="input-login" placeholder="Mot de passe *" required>
+                
+                <div class="actions-login">
+                    <button type="submit" class="bouton-login">S'INSCRIRE</button>
+                </div>
+            </form>
 
-            <a href="../index.php">Vous avez deja un compte?</a>
+            <div class="liens-bas-login">
+                <a href="../index.php" class="lien-secondaire">Déjà un compte ? Se connecter</a>
+            </div>
 
-            <?php
-
-                if (isset($message)) 
-                    echo "<p>".$message."</p>";
-
-            ?>
+            <div class="messages-alerte">
+                <?php
+                    if (isset($message)) 
+                        echo "<p class='alerte'>".$message."</p>";
+                ?>
+            </div>
         </div>
 
-        <p>@Fares - 2026</p>
+        <p class="copyright-login">@Fares|Yanis - 2026</p>
     </body>
 </html>

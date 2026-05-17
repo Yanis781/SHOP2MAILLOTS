@@ -150,3 +150,230 @@ body {
 .menu-deroulant:hover .contenu-deroulant {
     display: block;
 }
+
+/* =========================================
+   PIED DE PAGE (FOOTER) - Style Maxi Kits
+========================================= */
+.pied-principal {
+    background-color: #000000; /* Fond noir comme l'en-tête */
+    color: #ffffff; /* Texte blanc */
+    padding: 40px 0 20px 0;
+    margin-top: 50px; /* Donne de l'espace avec le contenu du dessus */
+    font-size: 14px;
+}
+
+/* Grille alignée pour les 3 colonnes */
+.conteneur-pied {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: table; /* Structure en tableau pour aligner les colonnes proprement */
+    table-layout: fixed;
+}
+
+.colonne-pied {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0 20px;
+}
+
+/* Titres des sections du footer */
+.colonne-pied h3 {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.colonne-pied p {
+    color: #cccccc;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Liste de navigation */
+.colonne-pied ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.colonne-pied ul li {
+    margin-bottom: 10px;
+}
+
+.colonne-pied ul li a {
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.colonne-pied ul li a:hover {
+    color: #0088ff; /* Lueur orange au survol */
+}
+
+/* Section réseaux sociaux */
+.liens-reseaux {
+    padding-top: 5px;
+}
+
+.lien-reseau {
+    display: block; /* Un réseau par ligne */
+    color: #cccccc;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: color 0.3s ease;
+}
+
+.lien-reseau:hover {
+    color: #00bbff;
+}
+
+/* Zone Copyright tout en bas */
+.bas-copyright {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #222; /* Ligne fine de séparation */
+}
+
+.bas-copyright p {
+    color: #666666;
+    margin: 0;
+    font-size: 12px;
+}
+
+/* =========================================
+   PAGE DE CONNEXION (INDEX.PHP RACINE)
+========================================= */
+/* =========================================
+   LA BANDEROLE NOIRE (PAGE DE CONNEXION)
+========================================= */
+.banniere-login {
+    position: absolute; /* Se colle tout en haut indépendamment du reste */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000000; /* Le fond noir */
+    color: #ffffff; /* Le texte blanc */
+    text-align: center; /* Centre le texte (tu peux mettre "left" si tu préfères à gauche) */
+    padding: 20px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Petite ombre légère en dessous */
+}
+
+.banniere-login h2 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 3px; /* Espace bien les lettres pour le côté premium */
+    font-weight: bold;
+}
+
+/* Assure-toi que ton .page-login a bien "position: relative;" 
+Voici à quoi il doit ressembler maintenant :
+*/
+.page-login {
+    position: relative; /* IMPORTANT pour la banderole absolute */
+    background-color: #ffffff; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; 
+}
+
+.conteneur-login {
+    width: 100%;
+    max-width: 450px; /* Largeur de la boite de connexion */
+    padding: 40px;
+}
+
+.conteneur-login h1 {
+    font-size: 20px;
+    color: #6c757d; /* Gris clair textuel */
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Style des champs de texte */
+.input-login {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da; /* Bordure grise très fine */
+    border-radius: 2px;
+    font-size: 15px;
+    box-sizing: border-box; /* Empêche le champ de dépasser de l'écran */
+    color: #495057;
+    font-family: inherit;
+}
+
+.input-login::placeholder {
+    color: #adb5bd; /* Couleur grise du texte d'exemple */
+}
+
+.input-login:focus {
+    outline: none;
+    border-color: #495057; /* La bordure fonce quand on clique dedans */
+}
+
+/* Gestion des messages PHP */
+.messages-alerte { margin-top: 30px; }
+.messages-alerte .alerte { color: #dc3545; font-size: 14px; text-align: center; }
+.messages-alerte .succes { color: #28a745; font-size: 14px; text-align: center; }
+
+.copyright-login {
+    color: #adb5bd;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+/* Alignement du bouton principal */
+.actions-login {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* LE NOUVEAU BOUTON : Plein, noir, pro */
+.bouton-login {
+    width: 100%; /* Le bouton prend toute la largeur du formulaire */
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    border-radius: 3px; /* Coins très légèrement arrondis */
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol du bouton principal */
+.bouton-login:hover {
+    background-color: #006177;
+}
+
+/* Zone du lien de création de compte */
+.liens-bas-login {
+    text-align: center; /* Centre le lien sous le bouton */
+    margin-top: 15px;
+}
+
+/* Lien pour créer un compte (style épuré) */
+.lien-secondaire {
+    color: #6c757d;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent; /* Prépare une bordure invisible */
+}
+
+.lien-secondaire:hover {
+    color: #000000; /* Devient noir au survol */
+    border-bottom: 1px solid #000000; /* Un trait fin apparaît sous le texte */
+}
