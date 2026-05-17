@@ -50,8 +50,9 @@ body {
 
 .logo-central img {
     /* On limite la taille de l'image pour qu'elle ne déborde pas de tes 10vh */
-    max-height: 4vh; /* 8vh laisse un petit espace (1vh en haut, 1vh en bas) */
+    max-height: 6vh; /* 8vh laisse un petit espace (1vh en haut, 1vh en bas) */
     transition: transform 0.3s ease; /* Pour rajouter une petite animation sympa */
+    box-shadow: 0px 8px 16px rgba(185, 213, 255, 0);
 }
 
 /* Optionnel : petit effet quand on passe la souris sur le logo central */
