@@ -377,3 +377,99 @@ Voici à quoi il doit ressembler maintenant :
     color: #000000; /* Devient noir au survol */
     border-bottom: 1px solid #000000; /* Un trait fin apparaît sous le texte */
 }
+
+/* =========================================
+   PAGES INTERNES (PARAMÈTRES, CATALOGUE...)
+========================================= */
+.conteneur-page {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto; /* Centre la page avec de l'espace en haut et en bas */
+    min-height: 50vh; /* S'assure que le footer ne remonte pas trop haut */
+}
+
+.titre-page {
+    font-size: 28px;
+    color: #000000;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    border-left: 5px solid #00b3ff; /* Petit trait de design sur la gauche */
+    padding-left: 15px;
+}
+
+/* Grille pour aligner les cartes de paramètres */
+.grille-parametres {
+    display: flex;
+    flex-wrap: wrap; /* Permet de passer à la ligne si l'écran est petit */
+    gap: 30px;
+}
+
+/* Style des blocs individuels */
+.carte-parametre {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 30px;
+    flex: 1; /* Prend l'espace disponible équitablement */
+    min-width: 300px; /* Ne devient jamais trop petit */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.carte-parametre h2 {
+    font-size: 18px;
+    margin-top: 0;
+    text-transform: uppercase;
+    color: #333333;
+}
+
+.separateur {
+    border: 0;
+    border-top: 1px solid #eeeeee;
+    margin: 15px 0 25px 0;
+}
+
+.info-texte {
+    font-size: 14px;
+    color: #666666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* --- BOUTONS SPÉCIFIQUES --- */
+
+/* Bouton rouge pour supprimer (utilise la base du bouton noir de connexion) */
+.bouton-rouge {
+    background-color: #dc3545;
+}
+
+.bouton-rouge:hover {
+    background-color: #c82333;
+}
+
+/* Variante : bouton qui ressemble à un lien mais stylé (ex: Supprimer mon compte) */
+.bouton-danger {
+    display: block;
+    text-align: center;
+    background-color: transparent;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.bouton-danger:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+/* Option pour centrer une carte toute seule (Page delete) */
+.zone-centree {
+    max-width: 500px;
+    margin: 0 auto;
+}
