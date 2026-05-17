@@ -31,7 +31,6 @@
             <?php echo "<p> Welcome back"." $user "."!</p>"; ?>
         </div>
 
-
         <p>@Fares|Yanis - 2026</p>
         
         <?php require_once '../includes/footer.php'; ?>
