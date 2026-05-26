@@ -9,7 +9,7 @@
         $user = mysqli_real_escape_string($con, $_POST['user']); 
         $password = mysqli_real_escape_string($con, $_POST['password']); 
 
-        $result = mysqli_query($con,"SELECT * FROM user WHERE user = '$user' AND mdp = '$password'");
+        $result = mysqli_query($con,"SELECT * FROM user WHERE nom_user = '$user' AND mdp = '$password'");
 
         if (mysqli_fetch_array($result)) {
 

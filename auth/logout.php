@@ -4,5 +4,12 @@
     $_SESSION = array(); 
      
     session_destroy(); 
-    header('location: ../index.php')
+
+    if (isset($_GET['edit-success'])){
+        $message = $_GET['edit-success'];
+        header("location: ../index.php?edit-success='$message'");
+    } else {
+        header('location: ../index.php');
+    }
+        
 ?>

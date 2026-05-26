@@ -33,7 +33,6 @@
         while($maillot = mysqli_fetch_array($result)) {
             echo '<div class="carte-produit">';
             
-            
             echo '<img src="../ressources/images/'.$maillot['fichier_image'].'" alt="'.$maillot['nom_maillot'].'" class="image-produit">'; 
             
             echo '<h3 class="nom-produit">'.$maillot['nom_maillot'].'</h3>';

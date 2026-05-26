@@ -10,15 +10,15 @@
         $password = mysqli_real_escape_string($con, $_POST['password']); 
         $password_edit = mysqli_real_escape_string($con, $_POST['password-edit']); 
 
-        $result = mysqli_query($con,"SELECT user FROM user WHERE user = '$user' AND mdp = '$password'");
+        $result = mysqli_query($con,"SELECT nom_user FROM user WHERE nom_user = '$user' AND mdp = '$password'");
 
         if (mysqli_fetch_array($result)) {
 
-                mysqli_query($con,"UPDATE user SET mdp = '$password_edit' WHERE user = '$user'"); 
+                mysqli_query($con,"UPDATE user SET mdp = '$password_edit' WHERE nom_user = '$user'"); 
 
                 $edit_success = "Password has been change";
 
-                header("location: ../index.php?edit-success=$edit_success");
+                header("location: ../auth/logout.php?edit-success='$edit_success'");
         } else {
             $edit_fail = "Wrong password !";
 
