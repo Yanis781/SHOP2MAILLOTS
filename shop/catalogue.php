@@ -21,7 +21,7 @@
 
     <?php require_once("../includes/header.php"); ?>
 
-    <div class="conteneur-page">
+    <div class="conteneur-catalogue">
         <h1 class="titre-page">NOS MAILLOTS</h1> 
 
         <?php 
@@ -34,8 +34,8 @@
             echo '<div class="carte-produit">';
             
             echo '<img src="../ressources/images/'.$maillot['fichier_image'].'" alt="'.$maillot['nom_maillot'].'" class="image-produit">'; 
-            
             echo '<h3 class="nom-produit">'.$maillot['nom_maillot'].'</h3>';
+            echo '<p class="prix-produit">29,99 &euro;</p>';
             
             echo '<a href="product.php?id='.$maillot['id_maillot'].'" class="bouton-voir">Voir les détails</a>';
             
@@ -44,7 +44,9 @@
         echo '</div>';
         ?>
 
-    </div> <?php require_once("../includes/footer.php"); ?>
+    </div> 
+
+    <?php require_once("../includes/footer.php"); ?>
 
 </body>
 </html>

@@ -472,3 +472,82 @@ Voici à quoi il doit ressembler maintenant :
     max-width: 500px;
     margin: 0 auto;
 }
+
+/* =========================================
+   PAGE CATALOGUE (GRILLE PRODUITS) - 5 PAR LIGNE
+========================================= */
+
+/* =========================================
+   CONTENEUR SPÉCIFIQUE AU CATALOGUE (PLEINE LARGEUR)
+========================================= */
+.conteneur-catalogue {
+    width: 96%; /* Prend presque tout l'écran, laisse juste une toute petite bordure esthétique */
+    max-width: none; /* Fait sauter la limite des 1000px ! */
+    margin: 50px auto;
+    min-height: 50vh;
+}
+
+.grille-produits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* On réduit un peu l'espace pour faire rentrer les 5 cartes */
+    justify-content: flex-start;
+}
+
+.carte-produit {
+    background-color: #ffffff;
+    border: 1px solid #eaeaea; /* Bordure très douce, plus moderne */
+    border-radius: 8px; /* Coins légèrement plus arrondis */
+    padding: 15px; /* Moins de marge interne pour gagner de la place */
+    width: calc(20% - 16px); /* 20% = 5 maillots par ligne (moins l'espace du gap) */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte-produit:hover {
+    transform: translateY(-5px);
+    /* Ombre avec un léger reflet bleu ciel au survol pour coller à ton thème */
+    box-shadow: 0 12px 24px rgba(0, 179, 255, 0.15); 
+}
+
+.image-produit {
+    width: 100%;
+    height: 160px; /* HAUTEUR FIXE OBLIGATOIRE : aligne toutes tes cartes même si les images sont différentes */
+    object-fit: contain; 
+    margin-bottom: 15px;
+}
+
+.nom-produit {
+    font-size: 13px; /* Police un peu plus petite car les cartes sont étroites */
+    font-weight: 700;
+    color: #333333;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+    flex-grow: 1; /* Pousse le prix et le bouton vers le bas */
+}
+
+/* Le bouton "Voir les détails" */
+.bouton-voir {
+    background-color: #ffffff;
+    color: #00b3ff; 
+    border: 2px solid #00b3ff;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    display: block; /* S'assure que le bouton prend bien sa forme de bloc */
+}
+
+.bouton-voir:hover {
+    background-color: #00b3ff;
+    color: #ffffff;
+}
