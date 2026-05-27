@@ -9,7 +9,7 @@
 
     <nav class="navigation-principale">
         <a href="../shop/catalogue.php">CATALOGUE</a>
-        <a href="../shop/cart.php">PANIER</a>
+        <a href="../shop/panier.php">PANIER</a>
         
         <div class="menu-deroulant">
             <span class="bouton-compte"><?php echo $_SESSION['user']; ?> ▼</span>

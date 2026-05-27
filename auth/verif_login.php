@@ -11,10 +11,10 @@
 
         $result = mysqli_query($con,"SELECT * FROM user WHERE nom_user = '$user' AND mdp = '$password'");
 
-        if (mysqli_fetch_array($result)) {
+        if ($donnees = mysqli_fetch_array($result)) {
 
-            $_SESSION['user'] = $user;
-            $_SESSION['password'] = $password;
+            $_SESSION['user'] = $donnees['nom_user'];
+            $_SESSION['id_user'] = $donnees['id_user'];
 
             header("location: ../shop/home.php");
 

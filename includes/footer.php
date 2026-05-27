@@ -10,8 +10,8 @@
             <h3>NAVIGATION</h3>
             <ul>
                 <li><a href="../shop/home.php">Accueil</a></li>
-                <li><a href="../shop/catalog.php">Catalogue</a></li>
-                <li><a href="../shop/cart.php">Votre Panier</a></li>
+                <li><a href="../shop/catalogue.php">Catalogue</a></li>
+                <li><a href="../shop/panier.php">Votre Panier</a></li>
                 <li><a href="../user/settings.php">Mon Compte</a></li>
             </ul>
         </div>
