@@ -37,7 +37,7 @@
             echo '<h3 class="nom-produit">'.$maillot['nom_maillot'].'</h3>';
             echo '<p class="prix-produit">29,99 &euro;</p>';
             
-            echo '<a href="product.php?id='.$maillot['id_maillot'].'" class="bouton-voir">Voir les détails</a>';
+            echo '<a href="product.php?id-maillot='.$maillot['id_maillot'].'" class="bouton-voir">Voir les détails</a>';
             
             echo '</div>';
         } 
