@@ -39,7 +39,7 @@
                 }
 
                 if (!empty($pannier['nuemro'])) {
-                    echo '<p> Flocage : '.$pannier['numero'].'</p><br>';
+                    echo '<p> numero : '.$pannier['numero'].'</p><br>';
                 }
 
                 echo '<p class="prix-produit">29,99 &euro;</p>';
