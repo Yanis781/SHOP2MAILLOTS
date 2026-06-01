@@ -17,7 +17,12 @@
         <link rel="icon" type="image/x-icon" href="../ressources/images/favicon.ico">
     </head>
     <body>
-        <?php require_once '../includes/header.php'; ?>   
+        <?php require_once '../includes/header.php'; ?>
+        
+        <form method="get" action="recherche.php?">
+            <input type="text" placeholder="Rechercher un maillot..." name="recherche" require>
+            <button type="submit">Rechercher</button>
+        </form>
 
         <?php 
                 if (isset($_GET['edit-success'])) {

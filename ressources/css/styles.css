@@ -551,3 +551,248 @@ Voici à quoi il doit ressembler maintenant :
     background-color: #00b3ff;
     color: #ffffff;
 }
+
+/* =========================================
+   PAGE DÉTAIL PRODUIT (PRODUCT.PHP)
+========================================= */
+.conteneur-produit {
+    display: flex;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    padding: 50px; /* Un peu plus d'espace à l'intérieur */
+    gap: 100px; /* On écarte bien l'image du formulaire */
+    margin-top: 20px;
+    border: 1px solid #e0e0e0;
+    width: 100%; /* S'assure que le bloc blanc touche les bords */
+    box-sizing: border-box;
+}
+
+/* Colonne Image (Gauche) */
+.colonne-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* J'utilise ton bleu ciel pour la bordure autour de l'image, comme sur ton wireframe mais adapté à tes couleurs */
+    border: 2px solid #00b3ff; 
+    border-radius: 8px;
+    padding: 20px;
+    background-color: #fcfcfc;
+}
+
+.image-detail {
+    max-width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* Colonne Formulaire (Droite) */
+.colonne-formulaire {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.entete-formulaire {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 15px;
+}
+
+.entete-formulaire h2 {
+    margin: 0;
+    font-size: 22px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.prix-detail {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00b3ff;
+}
+
+.formulaire-produit {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.groupe-input {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.groupe-input label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Design des champs de saisie */
+.formulaire-produit input[type="text"],
+.formulaire-produit input[type="number"],
+.formulaire-produit select {
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.formulaire-produit input:focus,
+.formulaire-produit select:focus {
+    outline: none;
+    border-color: #00b3ff;
+}
+
+/* Alignement du bas (Quantité + Bouton) */
+.bas-formulaire {
+    display: flex;
+    gap: 20px;
+    align-items: flex-end;
+    margin-top: 10px;
+}
+
+.quantite-box {
+    width: 120px;
+}
+
+/* Le gros bouton d'ajout au panier */
+.bouton-panier {
+    flex: 1;
+    background-color: #000000;
+    color: #ffffff;
+    border: 2px solid #000000;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.bouton-panier:hover {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* S'adapte sur téléphone : les colonnes passent l'une sous l'autre */
+@media (max-width: 800px) {
+    .conteneur-produit {
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+    }
+}
+
+/* =========================================
+   PAGE PANIER (PANIER.PHP)
+========================================= */
+/* La carte de chaque article du panier */
+.carte-panier {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Ombre très légère */
+    gap: 30px;
+}
+
+/* L'image de l'article */
+.image-panier {
+    width: 150px; /* Taille fixée pour ne pas prendre tout l'écran */
+    height: auto;
+    object-fit: contain;
+    background-color: #fcfcfc;
+    border: 1px solid #f0f0f0;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+/* La zone centrale avec le texte */
+.details-panier {
+    flex-grow: 1; /* Pousse le prix tout à droite en prenant l'espace restant */
+}
+
+.details-panier h3 {
+    margin-top: 0;
+    color: #000000;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.details-panier p {
+    margin: 5px 0;
+    color: #555555;
+    font-size: 15px;
+}
+
+/* Le prix sur la droite */
+.prix-panier p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00b3ff;
+    margin: 0;
+}
+
+/* =========================================
+   ZONE DE VALIDATION DU PANIER
+========================================= */
+.form-validation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.form-validation input[type="text"] {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.form-validation input[type="text"]:focus {
+    outline: none;
+    border-color: #00b3ff;
+}
+
+.bouton-valider {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 14px 25px;
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.bouton-valider:hover {
+    background-color: #00b3ff;
+}

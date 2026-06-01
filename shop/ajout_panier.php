@@ -18,11 +18,11 @@
             if (!empty($_POST['flocage'])) {
                 $flocage = mysqli_real_escape_string($con, $_POST['flocage']);
             } else {
-                $flocage = "NULL";
+                $flocage = "";
             }
 
             if (!empty($_POST['numero'])) {
-                $numero = $_POST['numero'];
+                $numero = mysqli_real_escape_string($con, $_POST['numero']);
             } else {
                 $numero = "NULL";
             }
