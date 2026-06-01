@@ -8,15 +8,26 @@
     </div>
 
     <nav class="navigation-principale">
-        <a href="../shop/catalogue.php">CATALOGUE</a>
-        <a href="../shop/panier.php">PANIER</a>
+
+        <?php 
+            if ($_SESSION['user'] != 'Admin') {
+                echo "<a href='../shop/catalogue.php'>CATALOGUE</a>";
+                echo "<a href=''../shop/panier.php'>PANIER</a>";
+            }
+        ?>
         
         <div class="menu-deroulant">
             <span class="bouton-compte"><?php echo $_SESSION['user']; ?> ▼</span>
             
             <div class="contenu-deroulant">
                 <p>Salut, <strong><?php echo $_SESSION['user']; ?></strong></p>
-                <a href="../user/settings.php">Paramètres</a>
+
+            <?php 
+            if ($_SESSION['user'] != 'Admin') {
+                echo "<a href='../user/settings.php'>Paramètres</a>";
+            }
+            ?>
+
                 <a href="../auth/logout.php">Déconnexion</a>
             </div>
         </div>

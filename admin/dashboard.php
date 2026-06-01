@@ -18,6 +18,8 @@
     <link rel="icon" type="image/x-icon" href="../ressources/images/favicon.ico">
 </head>
 <body>
-    aaaa
+
+    <?php require_once("../includes/header.php"); ?>
+
 </body>
 </html>
