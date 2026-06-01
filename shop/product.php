@@ -12,7 +12,7 @@
         header('location: catalogue.php');
         exit();
     } else {
-        // Sécurité : on s'assure que c'est bien un nombre
+        
         $id_choix = intval($_GET['id-maillot']); 
         $result = mysqli_query($con, "SELECT id_maillot, nom_maillot, fichier_image FROM Maillot WHERE id_maillot = $id_choix");
         $maillot = mysqli_fetch_array($result);
@@ -34,7 +34,7 @@
     <div class="conteneur-page">
         <h1 class="titre-page">PERSONNALISER LE MAILLOT</h1>
 
-        <div class="conteneur-catalogue">
+        <div class="conteneur-produit">
             
             <div class="colonne-image">
                 <?php echo '<img src="../ressources/images/'.$maillot['fichier_image'].'" alt="'.$maillot['nom_maillot'].'" class="image-detail">'; ?>

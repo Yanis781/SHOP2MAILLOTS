@@ -796,3 +796,58 @@ Voici à quoi il doit ressembler maintenant :
 .bouton-valider:hover {
     background-color: #00b3ff;
 }
+
+/* =========================================
+   ZONE DE RECHERCHE CATALOGUE
+========================================= */
+
+/* Remplace le style inline */
+.zone-recherche-catalogue {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Aligne le champ texte et le bouton proprement sur la même ligne */
+.barre-recherche {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Petit espace entre le champ et le bouton */
+}
+
+/* Style du champ de saisie (inspiré de tes autres formulaires) */
+.input-recherche {
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    width: 300px; /* Largeur de la barre */
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+/* Lueur bleue quand on clique dans la barre de recherche */
+.input-recherche:focus {
+    outline: none;
+    border-color: #00b3ff;
+}
+
+/* Style du bouton "Chercher" (inspiré de tes boutons noirs) */
+.bouton-recherche {
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    padding: 13px 25px; /* Aligné avec la hauteur de l'input */
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Devient bleu ciel au survol */
+.bouton-recherche:hover {
+    background-color: #00b3ff;
+}

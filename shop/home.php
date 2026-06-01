@@ -19,11 +19,6 @@
     <body>
         <?php require_once '../includes/header.php'; ?>
         
-        <form method="get" action="recherche.php?">
-            <input type="text" placeholder="Rechercher un maillot..." name="recherche" require>
-            <button type="submit">Rechercher</button>
-        </form>
-
         <?php 
                 if (isset($_GET['edit-success'])) {
                     echo "<p>".$_GET['edit-success']."</p>";
@@ -31,13 +26,21 @@
         ?>
 
         <div>
-            <h2> Profil </h2>
+            <h1 class="titre-page"> Page d'acceuil </h1>
+
+            <div class="zone-recherche-catalogue">
+                <form method="get" action="catalogue.php" class="barre-recherche">
+                    <input type="text" class="input-recherche" placeholder="Rechercher un maillot..." name="recherche" require>
+                    <button class="bouton-recherche" type="submit">Rechercher</button>
+                </form>
+            </div>
+
             <hr>
+
             <?php echo "<p> Welcome back"." $user "."!</p>"; ?>
+
         </div>
 
-        <p>@Fares|Yanis - 2026</p>
-        
         <?php require_once '../includes/footer.php'; ?>
     </body>
 </html>
