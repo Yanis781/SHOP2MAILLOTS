@@ -6,6 +6,11 @@
         header('location: shop/home.php');
     }
 
+    //if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+    //    header('location: ../admin/dashboard.php');
+    //    exit();
+    //}
+
     if (isset($_GET['message']))
         $message = $_GET['message'];
 

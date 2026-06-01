@@ -6,6 +6,11 @@
         exit();
     }
 
+    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+        header('location: ../admin/dashboard.php');
+        exit();
+    }
+
     require_once("../bdd/connect_db.php");
 
     if (!isset($_GET['id-maillot'])) {

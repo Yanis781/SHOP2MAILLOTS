@@ -15,6 +15,7 @@
 
             $_SESSION['user'] = $donnees['nom_user'];
             $_SESSION['id_user'] = $donnees['id_user'];
+            $_SESSION['role'] = $donnees['role'];
 
             header("location: ../shop/home.php");
 

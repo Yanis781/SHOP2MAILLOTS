@@ -6,6 +6,11 @@
         exit();
     }
 
+    if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
+        header('location: ../admin/dashboard.php');
+        exit();
+    }
+
     $user = $_SESSION['user'];
 ?>
 
@@ -30,7 +35,7 @@
 
             <div class="zone-recherche-catalogue">
                 <form method="get" action="catalogue.php" class="barre-recherche">
-                    <input type="text" class="input-recherche" placeholder="Rechercher un maillot..." name="recherche" require>
+                    <input type="text" class="input-recherche" placeholder="Rechercher un maillot..." name="recherche"s>
                     <button class="bouton-recherche" type="submit">Rechercher</button>
                 </form>
             </div>
