@@ -933,7 +933,7 @@ Voici à quoi il doit ressembler maintenant :
 
 .image-banniere-promo {
     width: 100%;
-    max-width: 1200px; 
+    max-width: 160vh; 
     height: auto;
     border-radius: 12px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);

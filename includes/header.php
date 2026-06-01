@@ -12,7 +12,7 @@
         <?php 
             if ($_SESSION['user'] != 'Admin') {
                 echo "<a href='../shop/catalogue.php'>CATALOGUE</a>";
-                echo "<a href=''../shop/panier.php'>PANIER</a>";
+                echo "<a href='../shop/panier.php'>PANIER</a>";
             }
         ?>
         
