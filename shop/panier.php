@@ -74,7 +74,7 @@
         </div> 
 
         <?php if (mysqli_num_rows($result) > 0) { // On n'affiche le formulaire que si le panier n'est pas vide ?>
-        <form method="post" action="Valid_commande.php" class="form-validation">
+        <form method="post" action="valid_commande.php" class="form-validation">
             <input type="text" name="nom_commande" placeholder="Nom de la commande *" required>
             <button type="submit" class="bouton-valider">Valider le panier</button>
         </form>
