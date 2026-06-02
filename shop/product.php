@@ -75,7 +75,7 @@
 
                     <div class="groupe-input">
                         <label for="numero">Numéro :</label>
-                        <input type="number" name="numero" id="numero" placeholder="Ex: 10 (optionnel)" min="1" max="99">
+                        <input type="text" name="numero" id="numero" placeholder="Ex: 10 (optionnel)">
                     </div>
 
                     <div class="bas-formulaire">

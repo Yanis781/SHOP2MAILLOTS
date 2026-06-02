@@ -26,14 +26,21 @@
                 $flocage = "";
             }
 
+            /*
             if (!empty($_POST['numero'])) {
                 $numero = mysqli_real_escape_string($con, $_POST['numero']);
             } else {
                 $numero = "NULL";
+            } */
+
+            if (isset($_POST['numero']) && $_POST['numero'] !== '') {
+                $numero= mysqli_real_escape_string($con, $_POST['numero']);
+            } else {
+                $numero= "";
             }
 
             $result = mysqli_query($con, "INSERT INTO Panier (id_user, id_maillot, quantite, numero, taille, flocage) 
-                VALUES ($id_user, $id_maillot, $quantite, $numero, '$taille', '$flocage')");
+                VALUES ($id_user, $id_maillot, $quantite, '$numero', '$taille', '$flocage')");
 
             header('location: panier.php');
 
