@@ -25,8 +25,8 @@
 
         <title>SHOP2MAILLOTS { Supprimer le compte }</title>
 
-        <link rel="stylesheet" href="ressources/css/styles.css">
-        <link rel="icon" type="image/x-icon" href="ressources/images/favicon.ico">
+        <link rel="stylesheet" href="../ressources/css/styles.css">
+        <link rel="icon" type="image/x-icon" href="../ressources/images/favicon.ico">
 
     </head>
 
