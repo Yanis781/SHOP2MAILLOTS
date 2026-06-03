@@ -192,7 +192,7 @@
                             $req_miniature = mysqli_query( $con, "SELECT M.nom_maillot, M.fichier_image FROM historique_commande H, maillot M WHERE H.id_commande = '$id_commande_actuelle' AND H.id_maillot = M.id_maillot;");
                             $miniature = mysqli_fetch_array( $req_miniature );
 
-                            echo "<div>";
+                            echo "<div class='carte-commande'>";
 
                             echo "  <h2>" . $commande['nom_commande'] . "</h2>";
                             echo "  <p>id de la commande : " . $commande['id_commande'] . ".</p>";
@@ -200,7 +200,7 @@
                             echo "  <hr>";
                             echo '  <img src="../ressources/images/' . $miniature['fichier_image'] . '" class="image-produit" alt="' . $miniature['nom_maillot'] . '">';
                             echo "  <p>". $commande['date_creation'] . "</p>";
-                            echo "  <a href='detaille_panier.php'>Voir le détaille de la commande</a>";
+                            echo "  <a href='detaille_panier.php?id_commande=" . $id_commande_actuelle . "'>Voir le détaille de la commande</a>";
 
                             echo "</div>";
 

@@ -99,12 +99,11 @@
 
                         <div class="groupe-input">
                             <label for="flocage">Flocage :</label>
-                            <input type="text" name="flocage" id="flocage" placeholder="Nom au dos (optionnel)">
-                        </div>
+                            <input type="text" name="flocage" id="flocage" placeholder="Nom au dos (optionnel)" pattern="^[a-zA-ZÀ-ÿ\s\-]+$" title="Seules les lettres et les espaces sont autorisés pour le flocage.">
 
                         <div class="groupe-input">
                             <label for="numero">Numéro :</label>
-                            <input type="text" name="numero" id="numero" placeholder="Ex: 10 (optionnel)">
+                            <input type="text" name="numero" id="numero" placeholder="Ex: 10 (optionnel)" pattern="^[0-9]+$" maxlength="3" title="Seuls les chiffres sont autorisés pour le numéro.">
                         </div>
 
                         <div class="bas-formulaire">
