@@ -1,10 +1,14 @@
 <?php 
     session_start();
 
+    /* -----  VERIF ET REDIRECTION DU USER POUR VOIR SI C L'ADMIN OU PAS ----- */
+
     if (!isset($_SESSION['user'])) {
         header('location: ../index.php');
         exit();
     }
+
+    /* -----  SI user = admin, on le redirige vers le dashborad (La page d'administration du site) ----- */
 
     if (isset($_SESSION['role']) && $_SESSION['role'] == 'admin') {
         header('location: ../admin/dashboard.php');
@@ -12,10 +16,15 @@
     }
 
     require_once("../bdd/connect_db.php");
+    
+    /*----- VERIF SI L'ID DU MAILLOT A BIEN ETE PASSE EN PARAMETRE DANS L'URL -----*/
 
     if (!isset($_GET['id-maillot'])) {
         header('location: catalogue.php');
         exit();
+
+        /*----- ON RECUPERE LE MAILLOT VISITE -----*/
+
     } else {
         
         $id_choix = intval($_GET['id-maillot']); 
@@ -23,6 +32,7 @@
         $maillot = mysqli_fetch_array($result);
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,11 +46,14 @@
 
     <?php require_once("../includes/header.php"); ?>
 
+    <!---- EN TETE HAUT DE PAGE ---->
+
     <div class="conteneur-page">
         <h1 class="titre-page">PERSONNALISER LE MAILLOT</h1>
 
         <div class="conteneur-produit">
             
+        <!---- AFFICHAGE DE L'IMAGE DU MAILLOT ET DU FORMULAIRE DE PERSONNALISATION ---->
             <div class="colonne-image">
                 <?php echo '<img src="../ressources/images/'.$maillot['fichier_image'].'" alt="'.$maillot['nom_maillot'].'" class="image-detail">'; ?>
             </div>

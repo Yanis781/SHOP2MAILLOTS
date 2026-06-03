@@ -28,31 +28,32 @@
         <?php require_once '../includes/header.php'; ?>
         
         <?php 
+        /* ------- AFFICHAGE DES MESSAGES DE SUCCES SI ON MODIFIE LE NOM D'UTILISATEUR ------- */
             if (isset($_GET['edit-success'])) {
                 echo "<p class='message-succes'>".$_GET['edit-success']."</p>";
             }
         ?>
 
         <div class="conteneur-catalogue">
-            
+            <!--- AFFICHAGE D'UN MESSAGE DE BIENVENUE AVEC LE NOM D'UTILISATEUR --->
             <div class="bienvenue-hero">
                 <h1 class="titre-bienvenue">Welcome back, <?php echo $user; ?> !</h1>
                 <p class="sous-titre-bienvenue">Prêt à trouver ton prochain maillot ?</p>
             </div>
-
+            <!---- BARRE DE RECHERCHE DE MAILLOT ----> 
             <div class="zone-recherche-accueil">
                 <form method="get" action="catalogue.php" class="barre-recherche">
                     <input type="text" class="input-recherche" placeholder="Rechercher un maillot..." name="recherche">
                     <button class="bouton-recherche" type="submit">Rechercher</button>
                 </form>
             </div>
-
+            <!--- AFFICHAGE D'UNE IMAGE REDIRIGEANT VERS LE CATALOGUE --->
             <div class="banniere-image-container">
                 <a href="catalogue.php">
                     <img src="../ressources/images/banierre.png" alt="Tous les maillots au meilleur prix" class="image-banniere-promo">
                 </a>
             </div>
-
+            <!---- AFFICHAGE DE POINT DE REASSURANCE ---->
             <div class="barre-reassurance">
                 <div class="reassurance-item">
                     <div class="icone-ronde">👕</div> 
@@ -78,15 +79,16 @@
 
             <hr class="separateur-section">
 
+            <!----- AFFICHAGE DES MAILLOTS RECEMMENT AJOUTER DANS LE CATALOGUE --->
             <h2 class="titre-section">🔥 LES NOUVEAUTÉS</h2>
             
             <div class="grille-produits">
                 <?php 
                 $req_nouveautes = "SELECT id_maillot, nom_maillot, fichier_image FROM Maillot ORDER BY id_maillot DESC LIMIT 10";
                 $result_nouveautes = mysqli_query($con, $req_nouveautes);
-
+                /* ----- ON VERIFIE QU'IL Y A DES NOUVEAUTES ----- */
                 if (mysqli_num_rows($result_nouveautes) > 0) {
-
+                    /* ----- AFFICHAGE DES MAILLOTS RECEMMENT AJOUTER DANS LE CATALOGUE ----- */
                     while ($maillot = mysqli_fetch_array($result_nouveautes)) {
                             echo '<div class="carte-produit">';
                             echo '  <img src="../ressources/images/'.$maillot['fichier_image'].'" class="image-produit" alt="'.$maillot['nom_maillot'].'">';
@@ -97,6 +99,7 @@
                             echo '</div>';
                     }
                 } else {
+                    /* ----- AFFICHAGE D'UN MESSAGE SI IL N'Y A PAS DE NOUVEAUTÉ ----- */
                     echo "<p class='message-vide'>Aucune nouveauté pour le moment.</p>";
                 }
                 ?>

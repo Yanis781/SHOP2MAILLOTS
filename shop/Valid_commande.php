@@ -1,6 +1,8 @@
 <?php 
     session_start();
 
+    /* -----  VERIF ET REDIRECTION DU USER POUR VOIR SI C L'ADMIN OU PAS ----- */
+
     if (!isset($_SESSION['user'])) {
         header('location: ../index.php');
         exit();
@@ -8,12 +10,16 @@
 
     require_once("../bdd/connect_db.php");
 
+    /*------ RECUPERATION DES DONNEES DU PANIER POUR LES AJOUTER DANS 'historique_commande' ET VIDER LE PANIER -----*/
+
     $id_user = $_SESSION['id_user'];
     $nom_commande=$_POST['nom_commande'];
-    $result = mysqli_query($con, "Select id_maillot, Taille, quantite, flocage, Numero FROM panier Where id_user= '$id_user' ");
-    mysqli_query($con, "insert into commande (id_user,nom_commande) VALUES ('$id_user', '$nom_commande')" );
-    $result2 = mysqli_query($con, "Select id_commande FROM commande Where id_user= '$id_user' AND nom_commande='$nom_commande' " );
+    $result = mysqli_query($con, "SELECT id_maillot, Taille, quantite, flocage, Numero FROM panier Where id_user= '$id_user' ");
+    mysqli_query($con, "INSERT into commande (id_user,nom_commande) VALUES ('$id_user', '$nom_commande')" );
+    $result2 = mysqli_query($con, "SELECT id_commande FROM commande Where id_user= '$id_user' AND nom_commande='$nom_commande' ");
+
     
+    /*---- INSERTION ET SUPPRESSION DES DONNEES DANS LES TABLES 'historique_commande' ET 'panier' -----*/
     
     if ($commande=mysqli_fetch_array($result2)){
         
@@ -34,6 +40,7 @@
     }
 
     header('location: panier.php');
+    exit();
     
 
 
