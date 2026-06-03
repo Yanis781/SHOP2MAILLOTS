@@ -20,7 +20,7 @@
 
         if ( $donnees = mysqli_fetch_array($result) ) {
 
-            /* ----- CREATINO DE VARIABLE GLOBAL SESSION --- */
+            /* ----- CREATION DE VARIABLE GLOBAL SESSION --- */
             //vont etre utiliser dans d'autre page pour par exemple correspondre un panier a un id-user.
 
             $_SESSION['user'] = $donnees['nom_user'];

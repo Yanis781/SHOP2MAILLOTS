@@ -5,39 +5,69 @@
     
     require_once('../bdd/connect_db.php');
 
-    if (isset($_POST['user-edit'],$_POST['password'])) {
+    /* ---  VERIF DES VARIABLE POUR CHANGEMENT DE USER --- */
+
+    if ( isset( $_POST['user-edit'], $_POST['password'] ) ) {
+
+        /* ----- EVITER L'INJECTION SQL ----- */
         
-        $user_edit = mysqli_real_escape_string($con, $_POST['user-edit']); 
-        $password = mysqli_real_escape_string($con, $_POST['password']); 
+        $user_edit = mysqli_real_escape_string( $con, $_POST['user-edit'] ); 
+        $password = mysqli_real_escape_string( $con, $_POST['password'] ); 
 
-        $result = mysqli_query($con,"SELECT nom_user FROM user WHERE nom_user = '$user' AND mdp = '$password'");
+        /* ---------------------------------- */
 
-        if (mysqli_fetch_array($result)) {
+        // --- REQUETE POUR VERIF SI LE MDP DONNER EST CORRECTE ----
+        $result = mysqli_query( $con, "SELECT nom_user FROM user WHERE nom_user = '$user' AND mdp = '$password'" );
 
-            $result2 = mysqli_query($con,"SELECT nom_user FROM user WHERE nom_user = '$user_edit'");
+        // --- CAS SI LE MDP EST CORRECTE --- 
+        if ( mysqli_fetch_array( $result ) ) {
 
-            if (!mysqli_fetch_array($result2)) {
+            // --- REQUETE POUR VERIF SI UN AUTRE NOM D'USER N'EXISTE PAS ----
+            $result2 = mysqli_query( $con,"SELECT nom_user FROM user WHERE nom_user = '$user_edit'" );
 
-                mysqli_query($con,"UPDATE nom_user SET user = '$user_edit' WHERE nom_user = '$user'"); 
+
+            // --- CAS SI LE NEW USER EXISTE PAS --- 
+            if ( !mysqli_fetch_array( $result2 ) ) {
+
+                mysqli_query( $con, "UPDATE nom_user SET user = '$user_edit' WHERE nom_user = '$user'" ); 
 
                 $_SESSION['user'] = $user_edit;
 
-                $edit_success = "User has been change";
+                $edit_success = "Le Nom d'utilisateur à bien été changer.";
 
                 header("location: ../shop/home.php?edit-success=$edit_success");
+                exit();
+
+
+            // --- CAS SI LE NEW USER EXISTE ---     
             } else {
-                $edit_fail = "This user already exist !";
+
+                $edit_fail = "Ce nom d'utilisateur existe déja !";
 
                 header("location: settings.php?edit-fail=$edit_fail");
+                exit();
+
             }
+
+        // --- CAS SI LE MDP DONNER EST MAUVAIS --- 
         } else {
-            $edit_fail = "Wrong password !";
+
+            $edit_fail = "Mauvais password !";
 
             header("location: settings.php?edit-fail=$edit_fail");
+            exit();
+
         }
+    
+    // --- CAS SI IL N'AS EU DE VARIABLE ENVOYER PAR LE FORMULAIRE ---
     } else {
+
         header('location: ../index.php');
+        exit();
+
     }
+
+    /* -------------------------------------------------------*/
 
 ?>
 

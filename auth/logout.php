@@ -9,7 +9,7 @@
     session_destroy(); 
 
     /* --- MESSAGE SUCCES ---*/
-    // sert a envoyer un message vers la page de connexion pour le cas ou l'utilisateur supprime son compte our fait une modif (voir dossier '/user').
+    // sert a envoyer un message vers la page de connexion pour le cas ou l'utilisateur supprime son compte pour fait une modif (voir dossier '/user').
 
     if ( isset( $_GET['edit-success'] ) ) {
 
