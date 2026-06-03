@@ -131,6 +131,8 @@
 
                 <?php 
 
+                    /* CODE BIEN IA JLE LAISSE EN COM AUX CAS OU JE FLOP LE CODE EN BAS
+
                     $result_cmd = mysqli_query( $con, "SELECT C.id_commande, C.nom_commande, C.date_creation, C.statut, H.id_maillot, M.nom_maillot FROM Commande C, historique_commande H, Maillot M WHERE C.id_commande = H.id_commande AND H.id_maillot = M.id_maillot AND C.id_user = '$id_user' ORDER BY C.date_creation DESC, C.id_commande DESC" );
                     
                     $id_commande_en_cours = null;
@@ -176,6 +178,40 @@
                         echo '<p class="message-vide">Vous n\'avez passé aucune commande pour le moment.</p>';
                     }
 
+                    */
+
+                    /* MON CODE INSHAALLAH IL MARCHE 🙏🙏🙏 */
+
+                    $req_commandes = mysqli_query( $con, "SELECT * FROM commande WHERE id_user = '$id_user'" );
+
+                    if ( mysqli_num_rows( $req_commandes ) > 0 ) {
+
+                        while ( $commande = mysqli_fetch_array( $req_commandes ) ) {
+
+                            $id_commande_actuelle = $commande['id_commande'];
+                            $req_miniature = mysqli_query( $con, "SELECT M.nom_maillot, M.fichier_image FROM historique_commande H, maillot M WHERE H.id_commande = '$id_commande_actuelle' AND H.id_maillot = M.id_maillot;");
+                            $miniature = mysqli_fetch_array( $req_miniature );
+
+                            echo "<div>";
+
+                            echo "  <h2>" . $commande['nom_commande'] . "</h2>";
+                            echo "  <p>id de la commande : " . $commande['id_commande'] . ".</p>";
+                            echo "  <p> " . $commande['statut'] . "</p>";
+                            echo "  <hr>";
+                            echo '  <img src="../ressources/images/' . $miniature['fichier_image'] . '" class="image-produit" alt="' . $miniature['nom_maillot'] . '">';
+                            echo "  <p>". $commande['date_creation'] . "</p>";
+                            echo "  <a href='detaille_panier.php'>Voir le détaille de la commande</a>";
+
+                            echo "</div>";
+
+                        }
+
+                    } else {
+
+                        echo "<h2>Pas de commande pour l'instant...</h2>";
+                        echo "<p>Ne perd pas de temps ! Rajoute des maillots dans ton panier et passe t'as prochaine commande ! ";
+                        
+                    }
                 ?>
 
             </div>

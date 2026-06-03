@@ -44,7 +44,7 @@
 
             }
 
-            header('location: index.php');
+            header('location: panier.php');
             exit();
             
         }
