@@ -712,6 +712,9 @@ Voici à quoi il doit ressembler maintenant :
     margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Ombre très légère */
     gap: 30px;
+
+    /* LA NOUVELLE LIGNE À AJOUTER : */
+    position: relative;
 }
 
 /* L'image de l'article */
@@ -750,6 +753,43 @@ Voici à quoi il doit ressembler maintenant :
     font-weight: bold;
     color: #00b3ff;
     margin: 0;
+    margin-bottom: 30px; /* Pousse le prix vers le haut pour laisser la place au bouton */
+}
+
+/* Conteneur du bouton (pour l'espacer un peu du texte au-dessus) */
+/* Le conteneur du bouton épinglé en bas à droite */
+.supprimer-panier {
+    position: absolute;
+    bottom: 20px; /* À 20px du bas */
+    right: 20px;  /* À 20px de la droite */
+}
+
+/* Le formulaire ne doit pas casser l'affichage */
+.supprimer-panier form {
+    margin: 0;
+}
+
+/* Le bouton de suppression (État normal : Noir) */
+.supprimer-panier button {
+    background-color: #000000; /* Fond noir */
+    color: #ffffff; /* Texte en blanc */
+    border: 1px solid #000000; /* Bordure noire */
+    border-radius: 6px; 
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase; 
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Permet un passage au rouge en douceur */
+}
+
+/* Effet au survol de la souris (Hover : devient Rouge) */
+.supprimer-panier button:hover {
+    background-color: #ff4d4d; /* Le fond devient rouge */
+    border-color: #ff4d4d; /* La bordure devient rouge aussi */
+    color: #ffffff; /* Le texte reste blanc */
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3); /* Petite ombre rouge pour le style */
 }
 
 /* =========================================

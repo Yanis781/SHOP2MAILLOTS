@@ -88,11 +88,13 @@
 
                             }
                             
+                            echo '  <div class="supprimer-panier">';
                             echo   '<form method="POST" action="delete_panier.php">
                                         <input type="hidden" name="maillot_supp" value="'. $panier['id_panier'] .'">
                                         <button type="submit" name="boutton-supprimer">Supprimer ce maillot</button>
                                     </form>';
-                                    
+                            echo '  </div>';       
+                                
                             echo '  </div>';
                             
                             echo '  <div class="prix-panier">';
