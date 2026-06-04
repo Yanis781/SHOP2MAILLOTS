@@ -67,9 +67,12 @@
 
             <div class="conteneur-produit">
                 
-            <!---- AFFICHAGE DE L'IMAGE DU MAILLOT ET DU FORMULAIRE DE PERSONNALISATION ---->
+                <!---- AFFICHAGE DE L'IMAGE DU MAILLOT ET DU FORMULAIRE DE PERSONNALISATION ---->
+
                 <div class="colonne-image">
+                    
                     <?php echo '<img src="../ressources/images/' . $maillot['fichier_image'] . '" alt="' . $maillot['nom_maillot'] . '" class="image-detail">'; ?>
+                
                 </div>
 
                 <div class="colonne-formulaire">
@@ -100,6 +103,8 @@
                         <div class="groupe-input">
                             <label for="flocage">Flocage :</label>
                             <input type="text" name="flocage" id="flocage" placeholder="Nom au dos (optionnel)" pattern="^[a-zA-ZÀ-ÿ\s\-]+$" title="Seules les lettres et les espaces sont autorisés pour le flocage.">
+                        </div>
+
 
                         <div class="groupe-input">
                             <label for="numero">Numéro :</label>

@@ -113,9 +113,9 @@
 
                     } else {
 
-                        echo '<div class="carte-produit">';
-                        echo '  <p style="text-align:center; width:100%;">Désolé, nous n\'avons pas trouvé de maillot correspondant.</p>';
-                        echo "  <a class='bouton-voir' href='catalogue.php'>Voir les maillot disponible</a>";
+                        echo '<div class="conteneur-catalogue-vide">';
+                        echo '  <p class="message-vide">Désolé, nous n\'avons pas trouvé de maillot correspondant.</p>';
+                        echo "  <a class='lien-catalogue-retour' href='catalogue.php'>Voir les maillots disponibles</a>";
                         echo '</div>';
 
                     }

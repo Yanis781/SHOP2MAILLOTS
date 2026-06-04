@@ -98,7 +98,10 @@
                             echo '  </div>';
                             
                             echo '  <div class="prix-panier">';
-                            echo '      <p>29,99 &euro;</p>';
+
+                            $prix_total_ligne = 29.99 * intval( $panier['quantite'] );
+
+                            echo '      <p>' . number_format($prix_total_ligne, 2, ',', ' ') . ' &euro;</p>';
                             echo '  </div>';
                             
                             echo '</div>';
@@ -137,11 +140,6 @@
 
                 <?php 
 
-                    
-                      
-
-            
-
                     $req_commandes = mysqli_query( $con, "SELECT * FROM commande WHERE id_user = '$id_user' ORDER BY date_creation DESC " );
 
                     if ( mysqli_num_rows( $req_commandes ) > 0 ) {
@@ -149,37 +147,72 @@
                         while ( $commande = mysqli_fetch_array( $req_commandes ) ) {
 
                             $id_commande_actuelle = $commande['id_commande'];
+        
                             $req_miniature = mysqli_query( $con, "SELECT M.nom_maillot, M.fichier_image FROM historique_commande H, maillot M WHERE H.id_commande = '$id_commande_actuelle' AND H.id_maillot = M.id_maillot;");
                             
-                            echo "<div class='carte-commande'>";
+                            if ( $commande['statut'] == 'effectuer' ) {
+                                
+                                $texte_statut = "Effectuée";
+                                $classe_couleur = "statut-vert";
+                                $classe_carte = "carte-verte"; 
+                                
+                            } elseif ( $commande['statut'] == 'pris en charge' ) {
+                                
+                                $texte_statut = "Prise en charge";
+                                $classe_couleur = "statut-orange"; 
+                                $classe_carte = "carte-orange"; 
+                                
+                            } else {
+                                
+                                $texte_statut = "En attente";
+                                $classe_couleur = "statut-noir";
+                                $classe_carte = ""; 
 
-                            echo "  <h2>" . $commande['nom_commande'] . "</h2>";
-                            echo "  <p>id de la commande : " . $commande['id_commande'] . ".</p>";
-                            echo "  <p> " . $commande['statut'] . "</p>";
-                            echo "  <hr>";
+                            }
+
+                            echo "<div class='carte-commande " . $classe_carte . "'>";
+
+                            echo "  <div class='entete-commande'>";
+                            echo "      <div>";
+                            echo "          <h3 style='margin-bottom: 5px;'>" . htmlspecialchars( $commande['nom_commande'] ) . "</h3>";
+                            echo "          <span style='font-size: 13px; color: #888;'>Commande N° " . $id_commande_actuelle . "</span>";
+                            echo "      </div>";
+                            echo "      <span class='statut-commande ".$classe_couleur."'>" . $texte_statut . "</span>";
+                            echo "  </div>";
                             
-                            for($i = 0; $i < 4; $i++) {
+                            echo "  <hr class='separateur'>";
                             
-                                if ($miniature = mysqli_fetch_array( $req_miniature )){
-                            
-                                    echo '  <img src="../ressources/images/' . $miniature['fichier_image'] . '" class="image-produit" alt="' . $miniature['nom_maillot'] . '">';
-                            
+                            echo "  <div class='miniatures-commande'>";
+
+                            for( $i = 0; $i < 4; $i++ ) {
+
+                                if ( $miniature = mysqli_fetch_array( $req_miniature ) ) {
+                                    
+                                    echo '  <img src="../ressources/images/' . $miniature['fichier_image'] . '" class="miniature-img" alt="' . htmlspecialchars($miniature['nom_maillot']) . '" title="' . htmlspecialchars($miniature['nom_maillot']) . '">';
                                 }
 
                             }
+
+                            echo "  </div>";
                             
-                            echo "  <p>". $commande['date_creation'] . "</p>";
-                            echo "  <a href='detail_commande.php?id_commande=" . $id_commande_actuelle . "'>Voir le détaille de la commande</a>";
+                            $date_formatee = date('d/m/Y à H:i', strtotime($commande['date_creation']));
+                            
+                            echo "  <div class='bas-commande'>";
+                            echo "      <p class='date-commande' style='margin: 0;'><strong>Passée le :</strong> " . $date_formatee . "</p>";
+                            echo "      <a href='detail_commande.php?id_commande=" . $id_commande_actuelle . "' class='bouton-detail'>Voir les détails</a>";
+                            echo "  </div>";
+
                             echo "</div>";
 
                         }
 
                     } else {
 
-                        echo "<h2>Pas de commande pour l'instant...</h2>";
-                        echo "<p>Ne perd pas de temps ! Rajoute des maillots dans ton panier et passe t'as prochaine commande ! ";
-                        
-                    }
+                        echo "<h2 style='text-align: center;'>Pas de commande pour l'instant...</h2>";
+                        echo "<p style='text-align: center; color: #666;'>Ne perds pas de temps ! Rajoute des maillots dans ton panier et passe ta prochaine commande !</p>";
+                    
+                        }
+
                 ?>
 
             </div>

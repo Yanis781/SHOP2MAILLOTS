@@ -41,7 +41,27 @@
             
         }
 
+        if ( $commande['statut'] == 'effectuer' ) {
 
+            $texte_statut = "Effectuée";
+            $classe_couleur = "statut-vert";
+            $classe_carte = "carte-verte";
+
+        } elseif ( $commande['statut'] == 'pris en charge' ) {
+
+            $texte_statut = "Prise en charge";
+            $classe_couleur = "statut-orange";
+            $classe_carte = "carte-orange";
+
+        } else {
+
+            $texte_statut = "En attente";
+            $classe_couleur = "statut-noir";
+            $classe_carte = ""; 
+
+        }
+
+        $date_formatee = date( 'd/m/Y à H:i', strtotime( $commande['date_creation'] ) );
 
     } else {
 
@@ -73,87 +93,123 @@
 
             <div class="conteneur-page">
 
-                <h2 class="titre-page">detaille de la commande : <?php echo $commande['nom_commande']; ?></h2>
+                <h2 class="titre-page">Détails de la commande : <?php echo htmlspecialchars($commande['nom_commande']); ?></h2>
 
-                <p><?php echo "Fait par : <strong>" . $commande['nom_user'] . " </strong>";?></p>
-                <p><?php echo "id de la commande : <strong>" . $commande['id_commande'] . " </strong>";?></p>
-                <p><?php echo "Etat : <strong>" . $commande['statut'] . " </strong>"; ?></p>
-                <p><?php echo "Commander le <strong>" . $commande['date_creation'] . " </strong>"; ?></p>
+                <div style="margin-bottom: 25px;">
 
-                <a href="dashboard.php" class="navigation-principale"> ⬅ Revenir aux dashboard</a>
-
+                    <a href="dashboard.php" class="lien-retour">⬅ Revenir au dashboard</a>
                 
+                </div>
+
                 <?php 
+                    
+                    if ( isset( $_GET['edit-success'] ) ) {
 
-                    if ( isset( $_GET['edit-success'] ) )
-                        echo "<p><strong>" . $_GET['edit-succes'] . "</strong></p>";
-                
-                    while ( $detaille_commande = mysqli_fetch_array( $req_detaille_commande ) ) {
-
-                        $miniature = mysqli_fetch_array( $req_miniature );
-
-                        echo '<div class="carte-panier">';
-                        echo '  <img src="../ressources/images/' . $miniature['fichier_image'] . '" alt="' . $miniature['nom_maillot'] . '" class="image-panier">';
-                        
-                        echo '  <div class="details-panier">';
-                        echo '      <h3>' . $miniature['nom_maillot'] . '</h3>';
-                        echo '      <p><strong>Taille :</strong> ' . $detaille_commande['taille'] . '</p>';
-                        echo '      <p><strong>Quantité :</strong> ' . $detaille_commande['quantite'] . '</p>';
-                        
-                        /* ----- AFFICHAGE DU FLOCAGE ET NUMERO SI ILS ONT ETE RENSEIGNER PAR L'UTILISATEUR ----- */
-
-                        if ( !empty( $detaille_commande['flocage'] ) && $detaille_commande['flocage'] != 'NULL' ) {
-
-                            echo '      <p><strong>Flocage :</strong> ' . $detaille_commande['flocage'] . '</p>';
-
-                        }
-                            
-                        if ( isset( $detaille_commande['numero'] ) && $detaille_commande['numero'] != '' && $detaille_commande['numero'] != 'NULL' ) {
-
-                            echo '  <p><strong>Numéro :</strong> ' . $detaille_commande['numero'] . '</p>';
-
-                        }
-
-                        echo '  </div>';
-                        
-                        echo '  <div class="prix-panier">';
-                        echo '      <p>29,99 &euro;</p>';
-                        echo '  </div>';
-                        
-                        echo '</div>';
-
+                        echo "<div class='message-succes' style='margin-bottom: 20px; padding: 10px; border: 1px solid #28a745; background-color: #e9f7ef; border-radius: 4px;'>" . htmlspecialchars($_GET['edit-success']) . "</div>";
+                    
                     }
 
                 ?>
 
-                <form method="post" action="gerer_commande.php">
+                <div class="carte-commande <?php echo $classe_carte; ?>" style="margin-bottom: 40px;">
 
-                    <input type="hidden" name="id_commande" value="<?php echo $commande['id_commande']; ?>">
+                    <div class="entete-commande">
 
-                    <div class="groupe-input">
-                            <label for="status">Etat de la commande :</label>
-                            <select name="status" id="statut" required>
-                                <option value="en attente">en attente</option>
-                                <option value="pris en charge">pris en charge</option>
-                                <option value="effectuer">effectuer</option>
-                            </select>
+                        <div>
+
+                            <h3 style="margin-bottom: 5px;">Résumé de la commande</h3>
+
+                            <span style="font-size: 13px; color: #888;">Commande N° <?php echo $commande['id_commande']; ?> | Faite par : <strong><?php echo htmlspecialchars($commande['nom_user']); ?></strong></span>
+
+                        </div>
+
+                        <span class="statut-commande <?php echo $classe_couleur; ?>"><?php echo $texte_statut; ?></span>
+                    
                     </div>
 
-                    <button type="submit">Valider l'etat</button>
+                    <p class="date-commande" style="margin: 0; margin-top: 15px;"><strong>Passée le :</strong> <?php echo $date_formatee; ?></p>
+                
+                </div>
 
-                </form>
+                <div class="grille-panier" style="margin-bottom: 40px;">
 
-                <form method="post" action="gerer_commande.php">
+                    <?php
 
-                    <input type="hidden" name="id_commande" value="<?php echo $commande['id_commande']; ?>">
-                    <input type="hidden" name="supprimer" value="1">
+                        while ( $detaille_commande = mysqli_fetch_array( $req_detaille_commande ) ) {
 
-                    <button type="submit">Supprimer la commande</button>
+                            $miniature = mysqli_fetch_array( $req_miniature );
 
-                </form>
+                            echo '<div class="carte-panier">';
+                            echo '  <img src="../ressources/images/' . $miniature['fichier_image'] . '" alt="' . htmlspecialchars($miniature['nom_maillot']) . '" class="image-panier">';
+                            
+                            echo '  <div class="details-panier">';
+                            echo '      <h3>' . htmlspecialchars($miniature['nom_maillot']) . '</h3>';
+                            echo '      <p><strong>Taille :</strong> ' . htmlspecialchars( $detaille_commande['taille'] ) . '</p>';
+                            echo '      <p><strong>Quantité :</strong> ' . htmlspecialchars( $detaille_commande['quantite'] ) . '</p>';
+                            
+                            /* ----- AFFICHAGE DU FLOCAGE ET NUMERO SI RENSEIGNÉS ----- */
+
+                            if ( !empty( $detaille_commande['flocage'] ) && $detaille_commande['flocage'] != 'NULL' ) {
+
+                                echo '      <p><strong>Flocage :</strong> ' . htmlspecialchars($detaille_commande['flocage']) . '</p>';
+                            }
+                                
+                            if ( isset( $detaille_commande['numero'] ) && $detaille_commande['numero'] != '' && $detaille_commande['numero'] != 'NULL' ) {
+                                echo '  <p><strong>Numéro :</strong> ' . htmlspecialchars($detaille_commande['numero']) . '</p>';
+                            }
+
+                            echo '  </div>';
+                            
+                            echo '  <div class="prix-panier">';
+                            echo '      <p>29,99 &euro;</p>';
+                            echo '  </div>';
+                            
+                            echo '</div>';
+
+                        }
+
+                    ?>
+
+                </div>
+
+                <div class="carte-parametre">
+
+                    <h3 style="margin-top: 0; margin-bottom: 20px; text-transform: uppercase; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px;">Actions Administrateur</h3>
+
+                    <form method="post" action="gerer_commande.php" style="display: flex; gap: 15px; align-items: flex-end; margin-bottom: 25px;">
+                        
+                        <input type="hidden" name="id_commande" value="<?php echo $commande['id_commande']; ?>">
+                        
+                        <div class="groupe-input" style="flex: 1;">
+
+                            <label for="statut">Modifier l'état de la commande :</label>
+                            
+                            <select name="status" id="statut" style="padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 15px;" required>
+                                <option value="en attente" >En attente</option>
+                                <option value="pris en charge" >Prise en charge</option>
+                                <option value="effectuer" >Effectuée</option>
+                            </select>
+
+                        </div>
+
+                        <button type="submit" class="bouton-recherche" style="padding: 12px 25px;">Valider l'état</button>
+
+                    </form>
+
+                    <hr class="separateur">
+
+                    <form method="post" action="gerer_commande.php" style="margin: 0;">
+
+                        <input type="hidden" name="id_commande" value="<?php echo $commande['id_commande']; ?>">
+                        <input type="hidden" name="supprimer" value="1">
+                        
+                        <button type="submit" class="bouton-danger" style="width: 100%;">Supprimer définitivement la commande</button>
+                    
+                    </form>
+
+                </div>
 
             </div>
-        
         
     </body>
 </html>

@@ -5,6 +5,10 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f4f4; /* Fond gris clair pour le reste du site */
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* =========================================
@@ -1162,4 +1166,200 @@ Voici à quoi il doit ressembler maintenant :
 
 .consignes-formulaire li {
     margin-bottom: 3px;
+}
+
+/* =========================================
+   MINIATURES ET DÉTAILS COMMANDES CLIENT
+========================================= */
+
+/* Alignement des couvertures de maillots sur une seule ligne */
+.miniatures-commande {
+    display: flex;
+    gap: 15px; /* Espace entre chaque miniature */
+    margin: 15px 0 25px 0;
+    align-items: center;
+}
+
+/* Style individuel des petites images */
+.miniature-img {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    background-color: #fcfcfc;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 5px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Petit effet de zoom au survol d'un maillot */
+.miniature-img:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 8px rgba(0, 179, 255, 0.2);
+}
+
+/* Zone du bas pour séparer la date du bouton */
+.bas-commande {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed #eeeeee;
+    padding-top: 15px;
+}
+
+/* Style du bouton "Voir les détails" */
+.bouton-detail {
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
+    padding: 8px 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.bouton-detail:hover {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Badge pour le statut "Pris en charge" */
+.statut-commande.statut-orange {
+    background-color: #ffc953; /* Le bleu clair de ton thème */
+    color: #ffffff;
+}
+
+/* =========================================
+   COULEURS DYNAMIQUES DES COMMANDES
+========================================= */
+
+/* --- STATUT : EFFECTUÉE (VERT) --- */
+.statut-commande.statut-vert {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.carte-commande.carte-verte {
+    border: 2px solid #28a745; /* Bordure verte un peu plus épaisse */
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.15); /* Ombre verte diffuse */
+}
+
+/* --- STATUT : PRIS EN CHARGE (ORANGE) --- */
+.statut-commande.statut-orange {
+    background-color: #fd7e14;
+    color: #ffffff;
+}
+
+.carte-commande.carte-orange {
+    border: 2px solid #fd7e14; /* Bordure orange */
+    box-shadow: 0 4px 15px rgba(253, 126, 20, 0.15); /* Ombre orange diffuse */
+}
+
+/* Note : Le statut "En attente" garde le style de base de .carte-commande et .statut-noir */
+
+
+/* =========================================
+   LIEN RETOUR (Détails Commande)
+========================================= */
+.lien-retour {
+    display: inline-block;
+    color: #6c757d; /* Gris discret par défaut */
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.lien-retour:hover {
+    color: #00b3ff; /* Passe au bleu ciel au survol */
+}
+
+/* =========================================
+   MESSAGE CATALOGUE VIDE
+========================================= */
+
+/* Centre toute la zone sur 100% de la largeur de la grille */
+.conteneur-catalogue-vide {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    gap: 5px;
+}
+
+/* Augmente légèrement la taille du texte pour qu'il soit bien visible */
+.conteneur-catalogue-vide .message-vide {
+    font-size: 18px;
+}
+
+/* Enlève le soulignement par défaut du lien sur le bouton */
+.lien-catalogue-retour {
+    text-decoration: none;
+    color: white;
+    background-color: #00aeff;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    border: white solid 2px;
+    transition: 0.5s;
+}
+
+.lien-catalogue-retour:hover {
+    background-color: #009fc6;
+    box-shadow: 0 0px 15px #009fc6;
+}
+
+/* =========================================
+   GRILLE DASHBOARD ADMIN (3 PAR LIGNE)
+========================================= */
+.grille-commandes-admin {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.grille-commandes-admin .carte-commande {
+    /* 3 cartes par ligne. On retire l'espace du gap (20px * 2) divisé par 3 = env 14px */
+    width: calc(33.333% - 14px); 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* On réduit un peu les miniatures pour être sûr qu'elles rentrent à 4 dans ces cartes plus étroites */
+.grille-commandes-admin .miniatures-commande .miniature-img {
+    width: 45px;
+    height: 45px;
+    padding: 3px;
+    gap: 10px;
+}
+
+/* Responsive : S'adapte sur les écrans plus petits */
+@media (max-width: 900px) {
+    .grille-commandes-admin .carte-commande {
+        width: calc(50% - 10px); /* Passe à 2 par ligne sur tablette */
+    }
+}
+
+@media (max-width: 650px) {
+    .grille-commandes-admin .carte-commande {
+        width: 100%; /* Passe à 1 par ligne sur téléphone */
+    }
+}
+
+/* =========================================
+   CONTENEUR LARGE (DASHBOARD ADMIN)
+========================================= */
+.conteneur-dashboard {
+    width: 96%; /* Prend presque tout l'écran comme le catalogue */
+    max-width: 1500px; /* Élargit la limite maximale (au lieu de 1000px) */
+    margin: 50px auto; /* Centre la boîte avec un espace au-dessus */
+    flex: 1; /* Garde le footer collé en bas ! */
 }
