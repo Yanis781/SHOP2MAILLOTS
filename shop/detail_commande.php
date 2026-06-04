@@ -92,7 +92,7 @@
                     
                     echo '  <div class="details-panier">';
                     echo '      <h3>' . $miniature['nom_maillot'] . '</h3>';
-                    echo '      <p><strong>Taille :</strong> ' . $detaille_commande['Taille'] . '</p>';
+                    echo '      <p><strong>Taille :</strong> ' . $detaille_commande['taille'] . '</p>';
                     echo '      <p><strong>Quantité :</strong> ' . $detaille_commande['quantite'] . '</p>';
                     
                     /* ----- AFFICHAGE DU FLOCAGE ET NUMERO SI ILS ONT ETE RENSEIGNER PAR L'UTILISATEUR ----- */
