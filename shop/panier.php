@@ -50,7 +50,7 @@
 
                     $id_user = $_SESSION['id_user'];
                     
-                    $result = mysqli_query( $con, "SELECT P.id_maillot, M.nom_maillot, M.fichier_image, P.quantite, P.numero, P.flocage, P.taille FROM Panier P, User U, Maillot M WHERE P.id_maillot = M.id_maillot AND P.id_user = U.id_user AND U.id_user = '$id_user'" );
+                    $result = mysqli_query( $con, "SELECT P.id_maillot, P.id_panier, M.nom_maillot, M.fichier_image, P.quantite, P.numero, P.flocage, P.taille FROM Panier P, User U, Maillot M WHERE P.id_maillot = M.id_maillot AND P.id_user = U.id_user AND U.id_user = '$id_user'" );
                     
                     /*---- AFFICHAGE DU PANIER UTILISATEUR ----*/
 
@@ -65,6 +65,9 @@
                             echo '      <h3>' . $panier['nom_maillot'] . '</h3>';
                             echo '      <p><strong>Taille :</strong> ' . $panier['taille'] . '</p>';
                             echo '      <p><strong>Quantité :</strong> ' . $panier['quantite'] . '</p>';
+                            
+                            
+
                             
                             /* ----- AFFICHAGE DU FLOCAGE ET NUMERO SI ILS ONT ETE RENSEIGNER PAR L'UTILISATEUR ----- */
 
@@ -84,7 +87,12 @@
                                 echo '  <p><strong>Numéro :</strong> ' . $panier['numero'] . '</p>';
 
                             }
-
+                            
+                            echo   '<form method="POST" action="delete_panier.php">
+                                        <input type="hidden" name="maillot_supp" value="'. $panier['id_panier'] .'">
+                                        <button type="submit" name="boutton-supprimer">Supprimer ce maillot</button>
+                                    </form>';
+                                    
                             echo '  </div>';
                             
                             echo '  <div class="prix-panier">';
@@ -94,14 +102,13 @@
                             echo '</div>';
                             
                         }
-                        echo'
-                            <form method="post" action="valid_commande.php" class="form-validation">
+                            echo' <form method="post" action="valid_commande.php" class="form-validation">
 
-                            <input type="text" name="nom_commande" placeholder="Nom de la commande *" required>
+                                <input type="text" name="nom_commande" placeholder="Nom de la commande *" required>
 
-                            <button type="submit" class="bouton-valider">Valider le panier</button>
+                                <button type="submit" class="bouton-valider">Valider le panier</button>
 
-                            </form>';
+                                </form>';
                     } else {
 
                         /* ----- AFFICHAGE D'UN MESSAGE SI LE PANIER EST VIDE ----- */
@@ -114,10 +121,7 @@
                 
             </div> 
 
-            <!--- AFFICHAGE D'UN FORMULAIRE DE VALIDATION DE COMMANDE SI LE PANIER N'EST PAS VIDE --->
-
-            
-
+            <!--- AFFICHAGE FORMULAIRE DE VALIDATION DE COMMANDE SI LE PANIER EST PAS VIDE --->
 
             
 
@@ -131,56 +135,10 @@
 
                 <?php 
 
-                    /* CODE BIEN IA JLE LAISSE EN COM AUX CAS OU JE FLOP LE CODE EN BAS
-
-                    $result_cmd = mysqli_query( $con, "SELECT C.id_commande, C.nom_commande, C.date_creation, C.statut, H.id_maillot, M.nom_maillot FROM Commande C, historique_commande H, Maillot M WHERE C.id_commande = H.id_commande AND H.id_maillot = M.id_maillot AND C.id_user = '$id_user' ORDER BY C.date_creation DESC, C.id_commande DESC" );
                     
-                    $id_commande_en_cours = null;
+                      
 
-                    if ( mysqli_num_rows( $result_cmd ) > 0 ) {
-
-                        while ( $ligne = mysqli_fetch_array( $result_cmd ) ) {
-                            
-                            if ( $ligne['id_commande'] != $id_commande_en_cours ) {
-                                
-                                if ($id_commande_en_cours !== null) {
-
-                                    echo '  </div>'; 
-                                    echo '</div>';   
-
-                                }
-                                
-                                echo '<div class="carte-commande">';
-                                echo '  <div class="entete-commande">';
-                                echo '      <h3>' . $ligne['nom_commande'] . '</h3>';
-                                echo '      <span class="statut-commande">' . $ligne['statut'] . '</span>';
-                                echo '  </div>';
-                                echo '  <p class="date-commande"><strong>Date :</strong> ' . $ligne['date_creation'] . '</p>';
-                                echo '  <div class="maillots-commande">';
-
-                                $id_commande_en_cours = $ligne['id_commande'];
-
-                            }
-
-                            echo '      <p class="maillot-item">• '.$ligne['nom_maillot'].'</p>';
-                            
-                        }
-
-                        if ($id_commande_en_cours != null) {
-
-                            echo '  </div>';
-                            echo '</div>';
-
-                        }
-
-                    } else {
-
-                        echo '<p class="message-vide">Vous n\'avez passé aucune commande pour le moment.</p>';
-                    }
-
-                    */
-
-                    /* MON CODE INSHAALLAH IL MARCHE 🙏🙏🙏 */
+            
 
                     $req_commandes = mysqli_query( $con, "SELECT * FROM commande WHERE id_user = '$id_user' ORDER BY date_creation DESC " );
 
@@ -210,7 +168,6 @@
                             
                             echo "  <p>". $commande['date_creation'] . "</p>";
                             echo "  <a href='detail_commande.php?id_commande=" . $id_commande_actuelle . "'>Voir le détaille de la commande</a>";
-
                             echo "</div>";
 
                         }
