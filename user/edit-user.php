@@ -14,10 +14,13 @@
         $user_edit = mysqli_real_escape_string( $con, $_POST['user-edit'] ); 
         $password = mysqli_real_escape_string( $con, $_POST['password'] ); 
 
+
+
         /* ---------------------------------- */
 
         // --- REQUETE POUR VERIF SI LE MDP DONNER EST CORRECTE ----
         $result = mysqli_query( $con, "SELECT nom_user FROM user WHERE nom_user = '$user' AND mdp = '$password'" );
+
 
         // --- CAS SI LE MDP EST CORRECTE --- 
         if ( mysqli_fetch_array( $result ) ) {
@@ -29,7 +32,7 @@
             // --- CAS SI LE NEW USER EXISTE PAS --- 
             if ( !mysqli_fetch_array( $result2 ) ) {
 
-                mysqli_query( $con, "UPDATE nom_user SET user = '$user_edit' WHERE nom_user = '$user'" ); 
+                mysqli_query( $con, "UPDATE user SET nom_user = '$user_edit' WHERE nom_user = '$user'" ); 
 
                 $_SESSION['user'] = $user_edit;
 

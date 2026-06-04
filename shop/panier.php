@@ -209,7 +209,7 @@
                             }
                             
                             echo "  <p>". $commande['date_creation'] . "</p>";
-                            echo "  <a href='detaille_panier.php?id_commande=" . $id_commande_actuelle . "'>Voir le détaille de la commande</a>";
+                            echo "  <a href='detail_commande.php?id_commande=" . $id_commande_actuelle . "'>Voir le détaille de la commande</a>";
 
                             echo "</div>";
 

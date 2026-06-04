@@ -6,11 +6,11 @@
     // pour chnager de dommain user ou mdp si on change de serveur de bdd
 
     $domaine = "localhost";
-    $user = "root";
-    $mdp = "";
+    $user_db = "root";
+    $mdp_db = "";
     $db = "shop2maillots_db";
 
-    $con = mysqli_connect( $domaine, $user, $mdp, $db ); 
+    $con = mysqli_connect( $domaine, $user_db, $mdp_db, $db ); 
 
     /* ------------------------------------------------ */
     /* --- AFFICHAGE SI ERREUR ---*/

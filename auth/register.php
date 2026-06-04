@@ -40,7 +40,7 @@
         <title>SHOP2MAILLOTS { Register }</title>
 
         <link rel="stylesheet" href="../ressources/css/styles.css">
-        <link rel="icon" type="image/x-icon" href="ressources/images/favicon.ico">
+        <link rel="icon" type="image/x-icon" href="../ressources/images/favicon.ico">
 
     </head>
 

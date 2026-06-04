@@ -32,13 +32,20 @@
         $req_detaille_commande = mysqli_query( $con, "SELECT * FROM historique_commande WHERE id_commande = '$id_commande' " );
         $req_miniature = mysqli_query( $con, "SELECT M.nom_maillot, M.fichier_image FROM historique_commande H, maillot M WHERE H.id_commande = '$id_commande' AND H.id_maillot = M.id_maillot;");
       
-        $commande = mysqli_fetch_array( $req_commande );
+        $commande = mysqli_fetch_array($req_commande);
+
+        if ( !$commande ) {
+            
+            header("Location: home.php");
+            exit();
+            
+        }
 
 
 
     } else {
 
-        header("location : home.php");
+        header("location: home.php");
         exit();
 
     }
