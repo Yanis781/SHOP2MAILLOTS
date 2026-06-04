@@ -64,9 +64,22 @@
 
             <form method="post" action="register_db.php">
 
-                <input type="text" name="new_user" class="input-login" placeholder="Identifiant *" required>
-                <input type="password" name="new_password" class="input-login" placeholder="Mot de passe *" required>
+                <input type="text" name="new_user" class="input-login" placeholder="Identifiant *" 
+                    minlength="4" maxlength="16" 
+                    title="L'identifiant doit faire entre 4 et 16 caractères." required>
+
+                <input type="password" name="new_password" class="input-login" placeholder="Mot de passe *" 
+                    pattern="(?=.*[A-Z]).{4,}" 
+                    title="Le mot de passe doit contenir au moins 4 caractères et une majuscule." required>
                 
+                <div class="consignes-formulaire">
+                    <p><strong>Critères requis :</strong></p>
+                    <ul>
+                        <li><strong>Identifiant :</strong> entre 4 et 16 caractères.</li>
+                        <li><strong>Mot de passe :</strong> minimum 4 caractères, dont au moins 1 majuscule.</li>
+                    </ul>
+                </div>
+
                 <div class="actions-login">
                     <button type="submit" class="bouton-login">S'INSCRIRE</button>
                 </div>
