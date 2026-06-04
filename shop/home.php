@@ -150,6 +150,7 @@
                 <?php
 
                     $req_nouveautes = "SELECT id_maillot, nom_maillot, fichier_image FROM Maillot ORDER BY id_maillot DESC LIMIT 10";
+                    
                     $result_nouveautes = mysqli_query($con, $req_nouveautes);
 
                     /* ----- ON VERIFIE QU'IL Y A DES NOUVEAUTES ----- */
